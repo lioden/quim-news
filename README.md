@@ -1,6 +1,6 @@
-# vuetify-news
+# Jornal do Senhor Joaquim
 
-> My awe-inspiring Nuxt.js project
+> O orgulho de Madaíl
 
 ## Build Setup
 
