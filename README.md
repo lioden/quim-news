@@ -22,3 +22,9 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+
+Upcoming: 
+- New Section: Youtube lookalike for video news
+- Connecting every single piece of information to an API
+- Top Navbar rebuild (need sections and logo is broken on mobile)
