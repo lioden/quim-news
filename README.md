@@ -1,9 +1,11 @@
+
+
 # Jornal do Senhor Joaquim
 
 > O orgulho de Madaíl
 
 ## Build Setup
-
+Open cmd or git bash, and navigate to the downloaded project folder.
 ``` bash
 # install dependencies
 $ npm install
