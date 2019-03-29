@@ -26,7 +26,7 @@
           <v-container fill-height>
             <v-flex xs3 raised style="padding-right:5px">
               <v-card style="box-shadow: 2px 2px 8px 2px #b3b3b3b3;">
-                <v-img :src="post.image[n]" height="300" flat></v-img>
+                <v-img :src="image" height="300" flat></v-img>
               </v-card>
             </v-flex>
             <v-flex xs9 style="padding-left:10px">

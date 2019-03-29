@@ -1,15 +1,5 @@
 <template>
   <div>
-    <v-container fluid grid-list-lg fill-height>
-      <v-flex xs3>
-        <v-card>
-          <v-img
-            src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-            height="300"
-          ></v-img>
-        </v-card>
-      </v-flex>
-    </v-container>
     <tabsverticais />
     <v-container fluid grid-list-md>
       <v-layout row wrap>

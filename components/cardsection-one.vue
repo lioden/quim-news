@@ -25,69 +25,6 @@
           </v-flex>
         </v-layout>
       </v-flex>
-      <v-flex d-flex xs12 sm6 md4 style="padding-left:1.5%;">
-        <v-layout row wrap>
-          <v-flex d-flex style="box-shadow: 2px 2px 8px 5px grey;">
-            <v-layout row wrap>
-              <v-flex v-for="n in 1" :key="n" d-flex xs12>
-                <v-card color="grey lighten-2" dark>
-                  <v-card color="grey darken-2" dark height="70">
-                    <v-card-text
-                      class="display-1 grey--text text--lighten-3 text-xs-right"
-                    >
-                      Latest News
-                    </v-card-text>
-                  </v-card>
-                  <br />
-                  <v-card
-                    color="grey lighten-3"
-                    dark
-                    height="200"
-                    style="padding-top:10px"
-                  >
-                    <v-card-text class="body-1 grey--text text--darken-3">{{
-                      lorem
-                    }}</v-card-text>
-                  </v-card>
-                  <br />
-                  <v-card
-                    color="grey lighten-3"
-                    dark
-                    height="200"
-                    style="padding-top:10px"
-                  >
-                    <v-card-text class="body-1 grey--text text--darken-3">{{
-                      lorem
-                    }}</v-card-text>
-                  </v-card>
-                  <br />
-                  <v-card
-                    color="grey lighten-3"
-                    dark
-                    height="200"
-                    style="padding-top:10px"
-                  >
-                    <v-card-text class="body-1 grey--text text--darken-3">{{
-                      lorem
-                    }}</v-card-text>
-                  </v-card>
-                  <br />
-                  <v-card
-                    color="grey lighten-3"
-                    dark
-                    height="200"
-                    style="padding-top:10px"
-                  >
-                    <v-card-text class="body-1 grey--text text--darken-3">{{
-                      lorem
-                    }}</v-card-text>
-                  </v-card>
-                </v-card>
-              </v-flex>
-            </v-layout>
-          </v-flex>
-        </v-layout>
-      </v-flex>
     </v-layout>
   </v-container>
 </template>
