@@ -1,16 +1,13 @@
 <template>
   <div>
+    <!-- Primeira Grid -->
     <v-container fluid grid-list-xl>
       <v-layout row wrap>
         <v-flex d-flex xs12 md8>
           <v-layout row wrap>
             <v-flex d-flex xs12 md8>
               <v-card color="red lighten-2" dark>
-                <v-img
-                  style="min-height:250px;max-height:350px"
-                  src="https://images.unsplash.com/photo-1553643182-15d168e4d680?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-                ></v-img>
-                <v-card-text>{{ lorem.slice(0, 40) }}</v-card-text>
+                <carro></carro>
               </v-card>
             </v-flex>
             <v-flex d-flex xs12 md4>
@@ -21,24 +18,23 @@
             <v-flex d-flex xs12 md6>
               <v-layout row wrap>
                 <v-flex d-flex xs6 md12>
-                  <v-card color="blue lighten-2" dark height="185">
-                    some text
-                  </v-card>
+                  <cardlandscape></cardlandscape>
                 </v-flex>
                 <v-flex d-flex xs6 md12>
-                  <v-card color="blue lighten-2" dark height="185">
-                    some text
-                  </v-card>
+                  <cardlandscape></cardlandscape>
                 </v-flex>
               </v-layout>
             </v-flex>
             <v-flex d-flex xs12 md6>
               <v-card color="green darken-3" dark height="400">
-                <v-img
-                  style="min-height:250px;max-height:250px"
-                  src="https://images.unsplash.com/photo-1553643182-15d168e4d680?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-                ></v-img>
-                <v-card-text>{{ lorem.slice(0, 40) }}</v-card-text>
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/R_uS0aT0bG8"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
               </v-card>
             </v-flex>
             <v-flex d-flex xs12 md12>
@@ -56,20 +52,74 @@
           <latestnews></latestnews>
         </v-flex>
       </v-layout>
-      <cardlandscape></cardlandscape>
     </v-container>
+    <!-- Fim da primeira grid -->
+    <br />
+    <hr />
+    <br />
+    <!-- Segunda grid -->
+    <v-container fluid grid-list-xl>
+      <v-layout row wrap>
+        <v-flex d-flex xs12 md8>
+          <v-layout row wrap>
+            <v-flex d-flex xs12 md12>
+              <v-card color="red lighten-2" dark>
+                <v-card color="green darken-3" dark height="600">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/R_uS0aT0bG8"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </v-card>
+              </v-card>
+            </v-flex>
+            <v-flex d-flex xs12 md6>
+              <v-layout row wrap>
+                <v-flex d-flex xs6 md12>
+                  <cardlandscape></cardlandscape>
+                </v-flex>
+                <v-flex d-flex xs6 md12>
+                  <cardlandscape></cardlandscape>
+                </v-flex>
+              </v-layout>
+            </v-flex>
+            <v-flex d-flex xs12 md6>
+              <v-card color="green darken-3" dark height="400">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/R_uS0aT0bG8"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </v-card>
+            </v-flex>
+          </v-layout>
+        </v-flex>
+        <v-flex d-flex xs12 md4>
+          <morevideos></morevideos>
+        </v-flex>
+      </v-layout>
+    </v-container>
+    <!-- Fim da segunda grid -->
   </div>
 </template>
 
 <script>
 import latestnews from '~/components/latestnews'
+import morevideos from '~/components/morevideos'
 import cardlandscape from '~/components/card-landscape'
 import carro from '~/components/carro'
 export default {
   components: {
     latestnews,
     cardlandscape,
-    carro
+    carro,
+    morevideos
   },
   data: () => ({
     lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
