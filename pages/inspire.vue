@@ -60,52 +60,50 @@
     <!-- Segunda grid -->
     <v-container fluid grid-list-xl>
       <v-layout row wrap>
-        <v-flex d-flex xs12 md8>
+        <v-flex d-flex xs12 md9>
           <v-layout row wrap>
             <v-flex d-flex xs12 md12>
-              <v-card color="red lighten-2" dark>
-                <v-card color="green darken-3" dark height="600">
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src="https://www.youtube.com/embed/R_uS0aT0bG8"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </v-card>
-              </v-card>
+              <iframe
+                width="100%"
+                height="700px"
+                src="https://www.youtube.com/embed/JYjIlHWBAVo"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
             </v-flex>
-            <v-flex d-flex xs12 md6>
+            <v-flex d-flex xs12 md12>
               <v-layout row wrap>
                 <v-flex d-flex xs6 md12>
-                  <cardlandscape></cardlandscape>
-                </v-flex>
-                <v-flex d-flex xs6 md12>
-                  <cardlandscape></cardlandscape>
+                  <v-card color="grey lighten-3" dark>
+                    <v-card-title primary class="title black--text"
+                      >Infected Mushroom - Guitarmass</v-card-title
+                    >
+                    <v-card-text class="black--text caption text-xs-right">
+                      01/04/2019
+                    </v-card-text>
+                    <v-card-text class="black--text">
+                      Stream/Download: ➥ https://monstercat.ffm.to/guitarmass 🎧
+                      Genre: #Psytrance
+                    </v-card-text>
+                    <v-card-text class="black--text caption">
+                      Infected Mushroom
+                    </v-card-text>
+                  </v-card>
                 </v-flex>
               </v-layout>
             </v-flex>
-            <v-flex d-flex xs12 md6>
-              <v-card color="green darken-3" dark height="400">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/embed/R_uS0aT0bG8"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </v-card>
-            </v-flex>
           </v-layout>
         </v-flex>
-        <v-flex d-flex xs12 md4>
+        <v-flex d-flex xs12 md3>
           <morevideos></morevideos>
         </v-flex>
       </v-layout>
     </v-container>
     <!-- Fim da segunda grid -->
+    <br />
+    <hr />
+    <br />
   </div>
 </template>
 

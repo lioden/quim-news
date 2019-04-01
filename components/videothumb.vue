@@ -4,21 +4,22 @@
       <v-flex d-flex xs12 md12>
         <v-card color="blue lighten-1" dark>
           <v-layout row wrap>
-            <v-flex d-flex xs12 md4>
-              <v-card color="red lighten-2" dark>
+            <v-flex d-flex xs12 md5>
+              <v-card color="grey darken-3" dark>
                 <v-img
-                  src="https://media.wired.com/photos/5c9d205d1e34481170ef2c00/1:1/w_326,c_limit/Culture_Replay_Ninja-1054424402.jpg"
+                  src="https://images.unsplash.com/photo-1553800391-d3c38ac58ab2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2145&q=80"
+                  style="height:130px"
                 ></v-img>
               </v-card>
             </v-flex>
-            <v-flex d-flex xs12 md8>
+            <v-flex d-flex xs12 md7>
               <v-card color="grey lighten-3" dark>
                 <v-card-title primary class="title black--text"
-                  >Lorem</v-card-title
+                  >Video Title</v-card-title
                 >
-                <v-card-text class="black--text">{{
-                  lorem.slice(0, 40)
-                }}</v-card-text>
+                <v-card-text class="black--text">
+                  Video description
+                </v-card-text>
               </v-card>
             </v-flex>
           </v-layout>

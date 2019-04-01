@@ -10,12 +10,13 @@
           >
             <v-card color="blue darken-3" dark height="70">
               <v-card-text
-                class="display-1 white--text text--lighten-3 text-xs-right"
+                class="headline white--text text--lighten-3 text-xs-left"
               >
                 Related Videos
               </v-card-text>
             </v-card>
             <br />
+            <videothumb></videothumb>
             <videothumb></videothumb>
             <videothumb></videothumb>
             <videothumb></videothumb>
