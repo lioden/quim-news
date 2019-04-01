@@ -97,7 +97,7 @@
           </v-layout>
         </v-flex>
         <v-flex d-flex xs12 md3>
-          <morevideos></morevideos>
+          <morevideos title="Vídeos relacionados"></morevideos>
         </v-flex>
       </v-layout>
     </v-container>
