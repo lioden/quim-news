@@ -7,6 +7,7 @@
           <v-layout row wrap>
             <v-flex d-flex xs12 md8>
               <v-card color="red lighten-2" dark>
+                <!-- o array funciona, {{ arraycarro1.images[0] }} passar para o componente -->
                 <carro></carro>
               </v-card>
             </v-flex>
@@ -120,6 +121,16 @@ export default {
     morevideos
   },
   data: () => ({
+    arraycarro1: {
+      images: [
+        'https://images.unsplash.com/photo-1553722686-e94d1b20e9e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
+        'https://images.unsplash.com/photo-1553808744-634be53ea568?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80'
+      ],
+      texts: [
+        'Uma caixa de correio random no meio duma ponte',
+        'A filha da Maria comprou um chapéu novo'
+      ]
+    },
     lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
     one:
       'https://images.unsplash.com/photo-1553643182-15d168e4d680?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
