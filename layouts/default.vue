@@ -90,6 +90,11 @@ export default {
           icon: 'directions_run',
           title: 'Desporto',
           to: '/inspire'
+        },
+        {
+          icon: 'picture_in_picture',
+          title: 'Noticia',
+          to: '/noticia'
         }
       ],
       miniVariant: false,
