@@ -1,30 +1,36 @@
 <template>
-  <v-container>
-    <v-layout row wrap>
-      <v-flex d-flex xs12 md12>
-        <v-card color="grey darken-2" dark>
-          <v-layout row wrap>
-            <v-flex d-flex xs12 md5>
-              <v-card color="black darken-3" dark>
+  <v-container fluid grid-list style="padding:0px 10px 15px">
+    <v-container fluid grid-list style="padding:0px 10px 15px">
+      <v-layout row wrap>
+        <v-flex d-flex xs12 md12>
+          <v-card color="grey darken-3" dark>
+            <v-layout row wrap style="margin:0px">
+              <v-flex d-flex xs12 md5 style="padding:0px">
                 <v-img
-                  style="object-fit: fill; height:160px"
-                  src="https://images.unsplash.com/photo-1554186285-e2bc44c34216?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                  style="object-fit: fill; height:150px"
+                  src="https://images.unsplash.com/photo-1553978370-b05b10c2ddfb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
                 ></v-img>
-              </v-card>
-            </v-flex>
-            <v-flex d-flex xs12 md7>
-              <v-container bg fill-height grid-list-md text-xs-center>
-                <v-layout row wrap align-center>
-                  <v-flex>
-                    Agressões no Hóquei
-                  </v-flex>
-                </v-layout>
-              </v-container>
-            </v-flex>
-          </v-layout>
-        </v-card>
-      </v-flex>
-    </v-layout>
+              </v-flex>
+              <v-flex d-flex xs12 md7 style="height:150px;padding:0px">
+                <v-container
+                  bg
+                  fill-height
+                  grid-list
+                  text-xs-center
+                  style="padding:0px"
+                >
+                  <v-layout row wrap align-center style="padding:0px">
+                    <v-flex class="hifens">
+                      <p>Coelho francês inferniza as populações de Codal</p>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </v-flex>
+            </v-layout>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
   </v-container>
 </template>
 

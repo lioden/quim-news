@@ -25,9 +25,7 @@
               </v-flex>
             </v-flex>
             <v-flex d-flex xs12 md4 style="padding-top:10px">
-              <v-card color="grey darken-3" dark class="hidden-sm-and-down">
-                <morevideos title="Notícias relacionadas"></morevideos>
-              </v-card>
+              <morevideos title="Notícias relacionadas"></morevideos>
             </v-flex>
             <v-flex d-flex xs12 md8>
               <v-layout row wrap>
