@@ -8,19 +8,27 @@
             dark
             style="box-shadow: 2px 2px 8px 5px grey"
           >
-            <v-card color="grey darken-3" dark height="70">
-              <v-card-text
-                class="headline white--text text--lighten-3 text-xs-left"
-              >
-                {{ title }}
-              </v-card-text>
+            <v-card color="grey darken-3" dark>
+              <v-layout row wrap style="margin:0px">
+                <v-flex d-flex xs12 md12 style="padding:15px 15px 0px">
+                  <v-container bg fill-height grid-list style="padding:0px">
+                    <v-layout row wrap style="padding:0px">
+                      <v-flex class="hifens">
+                        <p class="headline">{{ title }}</p>
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+                </v-flex>
+              </v-layout>
             </v-card>
             <br />
-            <videothumb></videothumb>
-            <videothumb></videothumb>
-            <videothumb></videothumb>
-            <videothumb></videothumb>
-            <videothumb></videothumb>
+            <v-layout row wrap>
+              <videothumb></videothumb>
+              <videothumb></videothumb>
+              <videothumb></videothumb>
+              <videothumb></videothumb>
+              <videothumb></videothumb>
+            </v-layout>
           </v-card>
         </v-flex>
       </v-layout>
@@ -42,3 +50,15 @@ export default {
   })
 }
 </script>
+
+<style>
+p {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+</style>

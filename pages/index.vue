@@ -1,77 +1,33 @@
 <template>
   <div>
-    <tabsverticais />
-    <v-container fluid grid-list-md>
-      <v-layout row wrap>
-        <v-flex d-flex xs12 sm6 md3>
-          <carro />
-        </v-flex>
-        <v-flex d-flex xs12 sm6 md3>
-          <v-layout row wrap>
-            <v-flex d-flex>
-              <v-layout row wrap>
-                <v-flex d-flex xs12>
-                  <carro />
-                </v-flex>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-        </v-flex>
-        <v-flex d-flex xs12 sm6 md3>
-          <v-layout row wrap>
-            <v-flex d-flex>
-              <v-layout row wrap>
-                <v-flex d-flex xs12>
-                  <carro />
-                </v-flex>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-        </v-flex>
-        <v-flex d-flex xs12 sm6 md3>
-          <v-layout row wrap>
-            <v-flex d-flex>
-              <v-layout row wrap>
-                <v-flex d-flex xs12>
-                  <carro />
-                </v-flex>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-        </v-flex>
-      </v-layout>
-    </v-container>
-    <v-container fluid grid-list-md>
-      <v-layout row wrap>
-        <v-flex d-flex xs12 sm6 md6>
-          <carro />
-        </v-flex>
-        <v-flex d-flex xs12 sm6 md6>
-          <carro />
-        </v-flex>
-      </v-layout>
-    </v-container>
-    <p class="font-weight-bold display-1" style="padding-left:10px">
+    <br />
+    <p
+      class="font-weight-bold display-1 grey--text text--lighten-3 text-xs-right"
+      style="padding-left:10px"
+    >
       <bold>Notícias Recentes</bold>
     </p>
-    <hr />
-    <tabsverticais style="padding-top:20px" />
+    <hr class="grey--text" />
+    <grid></grid>
+    <br /><br /><br />
+    <p
+      class="font-weight-bold display-1 black--text text--lighten-3 text-xs-left"
+      style="padding-left:10px"
+    >
+      <bold>Categorias</bold>
+    </p>
+    <hr class="grey--text" />
     <row4cards />
-    <minicards />
   </div>
 </template>
 
 <script>
-import tabsverticais from '~/components/tabsverticais'
-import carro from '~/components/carro'
-import minicards from '~/components/minicards'
 import row4cards from '~/components/row4cards'
+import grid from '~/components/grid'
 export default {
   components: {
-    tabsverticais,
-    carro,
     row4cards,
-    minicards
+    grid
   },
   data: () => ({
     show: false

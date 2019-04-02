@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Primeira Grid -->
-    <v-container fluid grid-list-s>
+    <v-container fluid grid-list style="padding:2% 0px 2%">
       <v-layout row wrap>
         <v-flex d-flex xs12 md9>
           <v-layout row wrap>
@@ -25,7 +25,10 @@
               </v-flex>
             </v-flex>
             <v-flex d-flex xs12 md4 style="padding-top:10px">
-              <morevideos title="Notícias relacionadas"></morevideos>
+              <morevideos
+                class="hidden-sm-and-down"
+                title="Notícias Relacionadas"
+              ></morevideos>
             </v-flex>
             <v-flex d-flex xs12 md8>
               <v-layout row wrap>
@@ -78,7 +81,7 @@
           <latestnews class="hidden-sm-and-down"></latestnews>
         </v-flex>
         <v-flex d-flex xs12 md4 style="padding-top:50px">
-          <v-card color="grey darken-3" dark class="hidden-sm-and-up">
+          <v-card color="grey darken-3" dark class="hidden-md-and-up">
             <morevideos title="Notícias relacionadas"></morevideos>
           </v-card>
         </v-flex>
