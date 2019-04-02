@@ -4,11 +4,11 @@
       <v-layout row wrap>
         <v-flex d-flex xs12>
           <v-card
-            color="grey darken-2"
+            color="grey lighten--1"
             dark
             style="box-shadow: 2px 2px 8px 5px grey"
           >
-            <v-card color="blue darken-3" dark height="70">
+            <v-card color="grey darken-3" dark height="70">
               <v-card-text
                 class="headline white--text text--lighten-3 text-xs-left"
               >

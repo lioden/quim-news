@@ -12,7 +12,7 @@
               </v-card>
             </v-flex>
             <v-flex d-flex xs12 md4>
-              <v-card color="grey darken-3" dark>
+              <v-card color="grey darken-3" dark class="hidden-sm-and-down">
                 <carro></carro>
               </v-card>
             </v-flex>
@@ -75,7 +75,7 @@
             </v-flex>
             <v-flex d-flex xs12 md12>
               <v-layout row wrap>
-                <v-flex d-flex xs6 md12>
+                <v-flex d-flex xs12 md12>
                   <v-card color="grey lighten-3" dark>
                     <v-card-title primary class="title black--text"
                       >Infected Mushroom - Guitarmass</v-card-title

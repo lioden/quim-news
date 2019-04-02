@@ -1,21 +1,25 @@
 <template>
-  <v-container fluid grid-list-xl>
+  <v-container fluid grid-list>
     <v-layout row wrap>
       <v-flex d-flex xs12 md12>
-        <v-card color="red lighten-1" dark>
+        <v-card color="grey darken-3" dark>
           <v-layout row wrap>
-            <v-flex d-flex xs12 md4>
-              <v-card color="red lighten-2" dark>
+            <v-flex d-flex xs12 md5>
+              <v-card color="grey darken-3" dark>
                 <v-img
-                  src="https://media.wired.com/photos/5c9d205d1e34481170ef2c00/1:1/w_326,c_limit/Culture_Replay_Ninja-1054424402.jpg"
+                  style="object-fit: fill; height:150px"
+                  src="https://images.unsplash.com/photo-1553978370-b05b10c2ddfb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
                 ></v-img>
               </v-card>
             </v-flex>
-            <v-flex d-flex xs12 md8>
-              <v-card color="grey darken-3" dark>
-                <v-card-title primary class="title">Lorem</v-card-title>
-                <v-card-text>{{ lorem.slice(0, 40) }}</v-card-text>
-              </v-card>
+            <v-flex d-flex xs12 md7 style="padding-right:10px">
+              <v-container bg fill-height grid-list-md text-xs-center>
+                <v-layout row wrap align-center>
+                  <v-flex>
+                    Greve dos estacionamentos em Madaíl
+                  </v-flex>
+                </v-layout>
+              </v-container>
             </v-flex>
           </v-layout>
         </v-card>

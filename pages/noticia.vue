@@ -8,12 +8,7 @@
             <v-flex d-flex xs12 md12>
               <v-flex d-flex xs12 md12>
                 <v-layout row wrap>
-                  <v-flex
-                    d-flex
-                    xs6
-                    md12
-                    style="padding-left:10px; padding-right:10px;"
-                  >
+                  <v-flex d-flex xs12 md12 style="padding-right:10px;">
                     <v-card color="grey lighten-3" dark>
                       <v-card-text
                         class="black--text display-2 text-xs-center"
@@ -29,8 +24,8 @@
                 </v-layout>
               </v-flex>
             </v-flex>
-            <v-flex d-flex xs12 md4>
-              <v-card color="grey darken-3" dark>
+            <v-flex d-flex xs12 md4 style="padding-top:10px">
+              <v-card color="grey darken-3" dark class="hidden-sm-and-down">
                 <morevideos title="Notícias relacionadas"></morevideos>
               </v-card>
             </v-flex>
@@ -38,9 +33,9 @@
               <v-layout row wrap>
                 <v-flex
                   d-flex
-                  xs6
+                  xs12
                   md12
-                  style="padding-left:10px; padding-right:10px;"
+                  style="padding-left:10px; padding-right:10px"
                 >
                   <v-card color="grey lighten-3" dark>
                     <carroartigo style="height:40%; width:100%"></carroartigo>
@@ -82,14 +77,16 @@
           </v-layout>
         </v-flex>
         <v-flex d-flex xs12 md3>
-          <latestnews></latestnews>
+          <latestnews class="hidden-sm-and-down"></latestnews>
+        </v-flex>
+        <v-flex d-flex xs12 md4 style="padding-top:50px">
+          <v-card color="grey darken-3" dark class="hidden-sm-and-up">
+            <morevideos title="Notícias relacionadas"></morevideos>
+          </v-card>
         </v-flex>
       </v-layout>
     </v-container>
     <!-- Fim da primeira grid -->
-    <br />
-    <hr />
-    <br />
   </div>
 </template>
 

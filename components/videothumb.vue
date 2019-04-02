@@ -2,25 +2,24 @@
   <v-container>
     <v-layout row wrap>
       <v-flex d-flex xs12 md12>
-        <v-card color="blue lighten-1" dark>
+        <v-card color="grey darken-2" dark>
           <v-layout row wrap>
             <v-flex d-flex xs12 md5>
-              <v-card color="grey darken-3" dark>
+              <v-card color="black darken-3" dark>
                 <v-img
-                  src="https://images.unsplash.com/photo-1553800391-d3c38ac58ab2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2145&q=80"
-                  style="height:130px"
+                  style="object-fit: fill; height:160px"
+                  src="https://images.unsplash.com/photo-1554186285-e2bc44c34216?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
                 ></v-img>
               </v-card>
             </v-flex>
             <v-flex d-flex xs12 md7>
-              <v-card color="grey lighten-3" dark>
-                <v-card-title primary class="title black--text"
-                  >Video Title</v-card-title
-                >
-                <v-card-text class="black--text">
-                  Video description
-                </v-card-text>
-              </v-card>
+              <v-container bg fill-height grid-list-md text-xs-center>
+                <v-layout row wrap align-center>
+                  <v-flex>
+                    Agressões no Hóquei
+                  </v-flex>
+                </v-layout>
+              </v-container>
             </v-flex>
           </v-layout>
         </v-card>
