@@ -2,18 +2,70 @@
   <div>
     <v-container fluid grid-list>
       <v-layout row wrap>
+        <v-dialog v-model="dialog" width="600px">
+          <template v-slot:activator="{ on }">
+            <v-flex d-flex xs12 style="height:500px">
+              <v-img
+                style="object-fit: contain;"
+                :src="blocourls[0]"
+                v-on="on"
+              ></v-img>
+            </v-flex>
+          </template>
+          <v-card>
+            <v-card-title>
+              <span class="headline">Use Google's location service?</span>
+            </v-card-title>
+            <v-card-text
+              >Lorem ipsum dolor sit amet, semper quis, sapien id natoque elit.
+              Nostra urna at, magna at neque sed sed ante imperdiet, dolor
+              mauris cursus velit, velit non, sem nec. Volutpat sem ridiculus
+              placerat leo, augue in, duis erat proin condimentum in a eget, sed
+              fermentum sed vestibulum varius ac, vestibulum volutpat orci ut
+              elit eget tortor. Ultrices nascetur nulla gravida ante arcu.
+              Pharetra rhoncus morbi ipsum, nunc tempor debitis, ipsum
+              pellentesque, vitae id quam ut mauris dui tempor, aptent non.
+              Quisque turpis. Phasellus quis lectus luctus orci eget rhoncus.
+              Amet donec vestibulum mattis commodo, nulla aliquet, nibh
+              praesent, elementum nulla. Sit lacus pharetra tempus magna neque
+              pellentesque, nulla vel erat. Justo ex quisque nulla accusamus
+              venenatis, sed quis. Nibh phasellus gravida metus in, fusce aenean
+              ut erat commodo eros. Ut turpis, dui integer, nonummy pede placeat
+              nec in sit leo. Faucibus porttitor illo taciti odio, amet viverra
+              scelerisque quis quis et tortor, curabitur morbi a. Enim tempor
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="green darken-1" flat="flat" @click="dialog = false"
+                >Disagree</v-btn
+              >
+              <v-btn color="green darken-1" flat="flat" @click="dialog = false"
+                >Agree</v-btn
+              >
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
         <v-flex d-flex xs12 sm6 md4 style="height:1200px">
           <v-layout row wrap>
             <v-flex d-flex>
               <v-layout row wrap>
                 <v-flex d-flex xs12 style="height:400px">
-                  <v-img style="object-fit: contain;" :src="imagens[7]"></v-img>
+                  <v-img
+                    style="object-fit: contain;"
+                    :src="blocourls[0]"
+                  ></v-img>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:400px">
-                  <v-img style="object-fit: contain" :src="imagens[6]"></v-img>
+                  <v-img
+                    style="object-fit: contain"
+                    :src="blocourls[1]"
+                  ></v-img>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:400px">
-                  <v-img style="object-fit: contain" :src="imagens[5]"></v-img>
+                  <v-img
+                    style="object-fit: contain"
+                    :src="blocourls[2]"
+                  ></v-img>
                 </v-flex>
               </v-layout>
             </v-flex>
@@ -24,10 +76,16 @@
             <v-flex d-flex>
               <v-layout row wrap>
                 <v-flex d-flex xs12 style="height:600px">
-                  <v-img style="object-fit: contain" :src="imagens[6]"></v-img>
+                  <v-img
+                    style="object-fit: contain"
+                    :src="blocourls[3]"
+                  ></v-img>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:600px">
-                  <v-img style="object-fit: contain" :src="imagens[5]"></v-img>
+                  <v-img
+                    style="object-fit: contain"
+                    :src="blocourls[4]"
+                  ></v-img>
                 </v-flex>
               </v-layout>
             </v-flex>
@@ -38,13 +96,22 @@
             <v-flex d-flex>
               <v-layout row wrap>
                 <v-flex d-flex xs12 style="height:400px">
-                  <v-img style="object-fit: contain;" :src="imagens[1]"></v-img>
+                  <v-img
+                    style="object-fit: contain;"
+                    :src="blocourls[5]"
+                  ></v-img>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:400px">
-                  <v-img style="object-fit: contain" :src="imagens[2]"></v-img>
+                  <v-img
+                    style="object-fit: contain"
+                    :src="blocourls[6]"
+                  ></v-img>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:400px">
-                  <v-img style="object-fit: contain" :src="imagens[3]"></v-img>
+                  <v-img
+                    style="object-fit: contain"
+                    :src="blocourls[7]"
+                  ></v-img>
                 </v-flex>
               </v-layout>
             </v-flex>
@@ -55,16 +122,16 @@
             <v-flex d-flex>
               <v-layout row wrap>
                 <v-flex d-flex xs12 style="height:300px">
-                  <v-img style="object-fit: fill" :src="imagens[4]"></v-img>
+                  <v-img style="object-fit: fill" :src="blocourls[8]"></v-img>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:300px">
-                  <v-img style="object-fit: fill" :src="imagens[5]"></v-img>
+                  <v-img style="object-fit: fill" :src="blocourls[9]"></v-img>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:300px">
-                  <v-img style="object-fit: fill" :src="imagens[7]"></v-img>
+                  <v-img style="object-fit: fill" :src="blocourls[0]"></v-img>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:300px">
-                  <v-img style="object-fit: fill" :src="imagens[6]"></v-img>
+                  <v-img style="object-fit: fill" :src="blocourls[1]"></v-img>
                 </v-flex>
               </v-layout>
             </v-flex>
@@ -76,19 +143,35 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data: () => ({
-    imagens: [
-      'https://images.unsplash.com/photo-1553969546-6f7388a7e07c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
-      'https://images.unsplash.com/photo-1554197324-9a1c73a755ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80',
-      'https://images.unsplash.com/photo-1553969488-312435bebbf4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
-      'https://images.unsplash.com/photo-1554196222-3464352db975?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-      'https://images.unsplash.com/photo-1553974021-c410ec0336bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-      'https://images.unsplash.com/photo-1553971371-1ff3607279c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1940&q=80',
-      'https://images.unsplash.com/photo-1524260855046-f743b3cdad07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1401&q=80',
-      'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
-    ],
-    lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`
-  })
+    dialog: false,
+    blocourls: [],
+    array: []
+  }),
+  created: function() {
+    const self = this
+    console.log('------------------created-----------------')
+    console.log(self.results)
+    axios
+      .get(
+        'https://api.unsplash.com/search/photos/?page=1;query=pug;orientation=landscape;client_id=2ebf903d65d58846dba610108cbf428043756525989c37bfd1121174ff28a339'
+      )
+      .then(function(response) {
+        self.array.push(response)
+        console.log('------------------axios response-----------------')
+        console.log(self.array)
+        console.log('------------------axios response-----------------')
+        for (const index in self.array[0].data.results) {
+          // don't actually do this
+          self.blocourls.push(self.array[0].data.results[index].urls.regular)
+        }
+        console.log(self.bloco)
+      })
+      .catch(function(error) {
+        console.log(error)
+      })
+  }
 }
 </script>

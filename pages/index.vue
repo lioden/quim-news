@@ -5,7 +5,7 @@
       class="font-weight-bold display-1 grey--text text--lighten-3 text-xs-right"
       style="padding-left:10px"
     >
-      <bold>Notícias Recentes</bold>
+      Notícias Recentes
     </p>
     <hr class="grey--text" />
     <grid></grid>
@@ -14,7 +14,7 @@
       class="font-weight-bold display-1 black--text text--lighten-3 text-xs-left"
       style="padding-left:10px"
     >
-      <bold>Categorias</bold>
+      Categorias
     </p>
     <hr class="grey--text" />
     <row4cards />
@@ -28,10 +28,7 @@ export default {
   components: {
     row4cards,
     grid
-  },
-  data: () => ({
-    show: false
-  })
+  }
 }
 </script>
 
