@@ -50,22 +50,19 @@
             <v-flex d-flex>
               <v-layout row wrap>
                 <v-flex d-flex xs12 style="height:400px">
-                  <v-img
-                    style="object-fit: contain;"
-                    :src="blocourls[0]"
-                  ></v-img>
+                  <nuxt-link to="/noticia"
+                    ><v-img style="height:400px" :src="blocourls[0]"></v-img
+                  ></nuxt-link>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:400px">
-                  <v-img
-                    style="object-fit: contain"
-                    :src="blocourls[1]"
-                  ></v-img>
+                  <nuxt-link to="/noticia"
+                    ><v-img style="height:400px" :src="blocourls[1]"></v-img
+                  ></nuxt-link>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:400px">
-                  <v-img
-                    style="object-fit: contain"
-                    :src="blocourls[2]"
-                  ></v-img>
+                  <nuxt-link to="/noticia"
+                    ><v-img style="height:400px" :src="blocourls[2]"></v-img
+                  ></nuxt-link>
                 </v-flex>
               </v-layout>
             </v-flex>
@@ -76,16 +73,14 @@
             <v-flex d-flex>
               <v-layout row wrap>
                 <v-flex d-flex xs12 style="height:600px">
-                  <v-img
-                    style="object-fit: contain"
-                    :src="blocourls[3]"
-                  ></v-img>
+                  <nuxt-link to="/noticia"
+                    ><v-img style="height:600px" :src="blocourls[3]"></v-img
+                  ></nuxt-link>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:600px">
-                  <v-img
-                    style="object-fit: contain"
-                    :src="blocourls[4]"
-                  ></v-img>
+                  <nuxt-link to="/noticia"
+                    ><v-img style="height:600px" :src="blocourls[4]"></v-img
+                  ></nuxt-link>
                 </v-flex>
               </v-layout>
             </v-flex>
@@ -96,22 +91,19 @@
             <v-flex d-flex>
               <v-layout row wrap>
                 <v-flex d-flex xs12 style="height:400px">
-                  <v-img
-                    style="object-fit: contain;"
-                    :src="blocourls[5]"
-                  ></v-img>
+                  <nuxt-link to="/noticia"
+                    ><v-img style="height:400px" :src="blocourls[5]"></v-img
+                  ></nuxt-link>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:400px">
-                  <v-img
-                    style="object-fit: contain"
-                    :src="blocourls[6]"
-                  ></v-img>
+                  <nuxt-link to="/noticia"
+                    ><v-img style="height:400px" :src="blocourls[6]"></v-img
+                  ></nuxt-link>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:400px">
-                  <v-img
-                    style="object-fit: contain"
-                    :src="blocourls[7]"
-                  ></v-img>
+                  <nuxt-link to="/noticia"
+                    ><v-img style="height:400px" :src="blocourls[7]"></v-img
+                  ></nuxt-link>
                 </v-flex>
               </v-layout>
             </v-flex>
@@ -122,16 +114,24 @@
             <v-flex d-flex>
               <v-layout row wrap>
                 <v-flex d-flex xs12 style="height:300px">
-                  <v-img style="object-fit: fill" :src="blocourls[8]"></v-img>
+                  <nuxt-link to="/noticia"
+                    ><v-img style="height:300px" :src="blocourls[8]"></v-img
+                  ></nuxt-link>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:300px">
-                  <v-img style="object-fit: fill" :src="blocourls[9]"></v-img>
+                  <nuxt-link to="/noticia"
+                    ><v-img style="height:300px" :src="blocourls[9]"></v-img
+                  ></nuxt-link>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:300px">
-                  <v-img style="object-fit: fill" :src="blocourls[0]"></v-img>
+                  <nuxt-link to="/noticia"
+                    ><v-img style="height:300px" :src="blocourls[2]"></v-img
+                  ></nuxt-link>
                 </v-flex>
                 <v-flex d-flex xs12 style="height:300px">
-                  <v-img style="object-fit: fill" :src="blocourls[1]"></v-img>
+                  <nuxt-link to="/noticia"
+                    ><v-img style="height:300px" :src="blocourls[3]"></v-img
+                  ></nuxt-link>
                 </v-flex>
               </v-layout>
             </v-flex>
@@ -156,7 +156,7 @@ export default {
     console.log(self.results)
     axios
       .get(
-        'https://api.unsplash.com/search/photos/?page=1;query=pug;orientation=landscape;client_id=2ebf903d65d58846dba610108cbf428043756525989c37bfd1121174ff28a339'
+        'https://api.unsplash.com/search/photos/?page=1;query=girl;orientation=landscape;client_id=2ebf903d65d58846dba610108cbf428043756525989c37bfd1121174ff28a339'
       )
       .then(function(response) {
         self.array.push(response)
@@ -175,3 +175,9 @@ export default {
   }
 }
 </script>
+<style media="screen">
+a {
+  padding: 0;
+  margin: 0;
+}
+</style>
