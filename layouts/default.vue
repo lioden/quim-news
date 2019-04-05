@@ -77,24 +77,44 @@ export default {
   data() {
     return {
       dark: false,
-      clipped: false,
+      clipped: true,
       drawer: false,
       fixed: false,
       items: [
         {
-          icon: 'business',
-          title: 'Página Principal',
+          icon: 'whatshot',
+          title: 'Recentes',
           to: '/'
+        },
+        {
+          icon: 'nature_people',
+          title: 'Cultura',
+          to: '/categorias/cultura'
         },
         {
           icon: 'directions_run',
           title: 'Desporto',
-          to: '/inspire'
+          to: '/categorias/desporto'
         },
         {
-          icon: 'picture_in_picture',
-          title: 'Noticia',
-          to: '/noticia'
+          icon: 'school',
+          title: 'Educação',
+          to: '/categorias/educacao'
+        },
+        {
+          icon: 'local_drink',
+          title: 'Ciência',
+          to: '/categorias/ciencia'
+        },
+        {
+          icon: 'attach_money',
+          title: 'Negócios',
+          to: '/categorias/business'
+        },
+        {
+          icon: 'live_tv',
+          title: 'Entretenimento',
+          to: '/categorias/entertainment'
         }
       ],
       miniVariant: false,
