@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-layout align-center>
+    <v-layout>
       <v-flex xs12 sm4 text-xs-center>
         <v-layout row wrap>
-          <v-flex v-forxs12 sm12 text-xs-center>
+          <v-flex xs12 sm12 text-xs-center class="zoom">
             <nuxt-link :to="`/articles/${blocoids[0]}`">
               <v-hover>
                 <v-card
@@ -11,7 +11,7 @@
                   class="mx-auto"
                   color="grey lighten-4"
                 >
-                  <v-img height="500px" :src="blocourls[0]">
+                  <v-img :src="blocourls[0]">
                     <v-expand-transition>
                       <div
                         v-if="hover"
@@ -30,30 +30,55 @@
       </v-flex>
       <v-flex xs12 sm4 text-xs-center>
         <v-layout row wrap>
-          <v-flex xs12 sm12 text-xs-center>
-            <v-hover>
-              <v-card
-                slot-scope="{ hover }"
-                class="mx-auto"
-                color="grey lighten-4"
-              >
-                <v-img height="500px" :src="blocourls[0]">
-                  <v-expand-transition>
-                    <div
-                      v-if="hover"
-                      class="d-flex red darken-2 v-card--reveal display-1 white--text"
-                      style="height: 50%;"
-                    >
-                      {{ blocoids[0] }}
-                    </div>
-                  </v-expand-transition>
-                </v-img>
-              </v-card>
-            </v-hover>
+          <v-flex xs12 sm12 text-xs-center class="zoom">
+            <nuxt-link :to="`/articles/${blocoids[0]}`">
+              <v-hover>
+                <v-card
+                  slot-scope="{ hover }"
+                  class="mx-auto"
+                  color="grey lighten-4"
+                >
+                  <v-img :src="blocourls[4]">
+                    <v-expand-transition>
+                      <div
+                        v-if="hover"
+                        class="d-flex red darken-2 v-card--reveal display-1 white--text"
+                        style="height: 50%;"
+                      >
+                        {{ blocoids[4] }}
+                      </div>
+                    </v-expand-transition>
+                  </v-img>
+                </v-card>
+              </v-hover>
+            </nuxt-link>
+          </v-flex>
+          <v-flex xs12 sm12 text-xs-center class="zoom">
+            <nuxt-link :to="`/articles/${blocoids[0]}`">
+              <v-hover>
+                <v-card
+                  slot-scope="{ hover }"
+                  class="mx-auto"
+                  color="grey lighten-4"
+                >
+                  <v-img :src="blocourls[5]">
+                    <v-expand-transition>
+                      <div
+                        v-if="hover"
+                        class="d-flex red darken-2 v-card--reveal display-1 white--text"
+                        style="height: 50%;"
+                      >
+                        {{ blocoids[5] }}
+                      </div>
+                    </v-expand-transition>
+                  </v-img>
+                </v-card>
+              </v-hover>
+            </nuxt-link>
           </v-flex>
         </v-layout>
       </v-flex>
-      <v-flex xs12 sm4 text-xs-center>
+      <v-flex xs12 sm4 text-xs-center class="zoom">
         <v-layout row wrap>
           <v-flex xs12 sm12 text-xs-center>
             <v-hover>
@@ -62,14 +87,14 @@
                 class="mx-auto"
                 color="grey lighten-4"
               >
-                <v-img height="500px" :src="blocourls[0]">
+                <v-img :src="blocourls[1]">
                   <v-expand-transition>
                     <div
                       v-if="hover"
                       class="d-flex red darken-2 v-card--reveal display-1 white--text"
                       style="height: 50%;"
                     >
-                      {{ blocoids[0] }}
+                      {{ blocoids[1] }}
                     </div>
                   </v-expand-transition>
                 </v-img>
@@ -238,26 +263,23 @@ export default {
       console.log(
         'https://api.unsplash.com/search/photos/?page=1;query=' +
           categoria +
-          ';orientation=landscape;client_id=2ebf903d65d58846dba610108cbf428043756525989c37bfd1121174ff28a339'
+          ';orientation=portrait;client_id=2ebf903d65d58846dba610108cbf428043756525989c37bfd1121174ff28a339'
       )
       axios
         .get(
           'https://api.unsplash.com/search/photos/?page=1;query=' +
             categoria +
-            ';orientation=landscape;client_id=2ebf903d65d58846dba610108cbf428043756525989c37bfd1121174ff28a339'
+            ';orientation=portrait;client_id=2ebf903d65d58846dba610108cbf428043756525989c37bfd1121174ff28a339'
         )
         .then(function(response) {
           console.log(response)
           self.array = []
           self.array.push(response)
-          console.log('-------------------blocourls antes-------------------')
-          console.log(self.blocourls)
           for (const index in self.array[0].data.results) {
             self.blocourls.push(self.array[0].data.results[index].urls.regular)
             self.blocoids.push(self.array[0].data.results[index].id)
           }
-          console.log('-------------------blocourls depois-------------------')
-          console.log(self.blocourls)
+          console.log(self.blocourls.slice(0, 3))
         })
         .catch(function(error) {
           console.log(error)
@@ -282,5 +304,16 @@ a {
 
 .custom {
   padding-top: 100px;
+}
+.zoom {
+  transition: transform 0.5s; /* Animation */
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  z-index: 1;
+  transform: scale(
+    1.1
+  ); /* Note: if the zoom is too large, it will go outside of the viewport) */
 }
 </style>
