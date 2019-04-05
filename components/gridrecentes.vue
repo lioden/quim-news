@@ -2,33 +2,118 @@
   <div>
     <v-layout align-center>
       <v-flex xs12 sm4 text-xs-center>
+        <v-layout row wrap>
+          <v-flex v-forxs12 sm12 text-xs-center>
+            <nuxt-link :to="`/articles/${blocoids[0]}`">
+              <v-hover>
+                <v-card
+                  slot-scope="{ hover }"
+                  class="mx-auto"
+                  color="grey lighten-4"
+                >
+                  <v-img height="500px" :src="blocourls[0]">
+                    <v-expand-transition>
+                      <div
+                        v-if="hover"
+                        class="d-flex red darken-2 v-card--reveal display-1 white--text"
+                        style="height: 50%;"
+                      >
+                        {{ blocoids[0] }}
+                      </div>
+                    </v-expand-transition>
+                  </v-img>
+                </v-card>
+              </v-hover>
+            </nuxt-link>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+      <v-flex xs12 sm4 text-xs-center>
+        <v-layout row wrap>
+          <v-flex xs12 sm12 text-xs-center>
+            <v-hover>
+              <v-card
+                slot-scope="{ hover }"
+                class="mx-auto"
+                color="grey lighten-4"
+              >
+                <v-img height="500px" :src="blocourls[0]">
+                  <v-expand-transition>
+                    <div
+                      v-if="hover"
+                      class="d-flex red darken-2 v-card--reveal display-1 white--text"
+                      style="height: 50%;"
+                    >
+                      {{ blocoids[0] }}
+                    </div>
+                  </v-expand-transition>
+                </v-img>
+              </v-card>
+            </v-hover>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+      <v-flex xs12 sm4 text-xs-center>
+        <v-layout row wrap>
+          <v-flex xs12 sm12 text-xs-center>
+            <v-hover>
+              <v-card
+                slot-scope="{ hover }"
+                class="mx-auto"
+                color="grey lighten-4"
+              >
+                <v-img height="500px" :src="blocourls[0]">
+                  <v-expand-transition>
+                    <div
+                      v-if="hover"
+                      class="d-flex red darken-2 v-card--reveal display-1 white--text"
+                      style="height: 50%;"
+                    >
+                      {{ blocoids[0] }}
+                    </div>
+                  </v-expand-transition>
+                </v-img>
+              </v-card>
+            </v-hover>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+    </v-layout>
+    <v-layout align-center>
+      <v-flex xs12 sm4 text-xs-center>
         <div>
-          <v-btn flat color="white" @click="pedido('futebol')">Sports</v-btn>
+          <v-btn flat color="white" @click="pedido('sports')">sports</v-btn>
         </div>
       </v-flex>
       <v-flex xs12 sm4 text-xs-center>
         <div>
-          <v-btn flat color="white">Culture</v-btn>
+          <v-btn flat color="white" @click="pedido('culture')">culture</v-btn>
         </div>
       </v-flex>
       <v-flex xs12 sm4 text-xs-center>
         <div>
-          <v-btn flat color="white">Business</v-btn>
+          <v-btn flat color="white" @click="pedido('business')">business</v-btn>
         </div>
       </v-flex>
       <v-flex xs12 sm4 text-xs-center>
         <div>
-          <v-btn flat color="white">Entertainment</v-btn>
+          <v-btn flat color="white" @click="pedido('entertainment')"
+            >entertainment</v-btn
+          >
         </div>
       </v-flex>
       <v-flex xs12 sm4 text-xs-center>
         <div>
-          <v-btn flat color="white">Technology</v-btn>
+          <v-btn flat color="white" @click="pedido('technology')"
+            >technology</v-btn
+          >
         </div>
       </v-flex>
       <v-flex xs12 sm4 text-xs-center>
         <div>
-          <v-btn flat color="white">Fun</v-btn>
+          <v-btn flat color="white" @click="pedido('education')"
+            >education</v-btn
+          >
         </div>
       </v-flex>
     </v-layout>
@@ -185,5 +270,17 @@ export default {
 a {
   padding: 0;
   margin: 0;
+}
+.v-card--reveal {
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  opacity: 0.8;
+  position: absolute;
+  width: 100%;
+}
+
+.custom {
+  padding-top: 100px;
 }
 </style>
