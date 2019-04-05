@@ -227,7 +227,7 @@ a {
 }
 
 .outerbutton {
-  margin: 0px 5px;
+  margin: 0px 0px;
 }
 .button {
   cursor: pointer;

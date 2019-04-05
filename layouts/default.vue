@@ -89,22 +89,22 @@ export default {
         {
           icon: 'nature_people',
           title: 'Cultura',
-          to: '/categorias/cultura'
+          to: '/categorias/culture'
         },
         {
           icon: 'directions_run',
           title: 'Desporto',
-          to: '/categorias/desporto'
+          to: '/categorias/sports'
         },
         {
           icon: 'school',
           title: 'Educação',
-          to: '/categorias/educacao'
+          to: '/categorias/education'
         },
         {
           icon: 'local_drink',
           title: 'Ciência',
-          to: '/categorias/ciencia'
+          to: '/categorias/science'
         },
         {
           icon: 'attach_money',

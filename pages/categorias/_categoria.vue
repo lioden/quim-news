@@ -7,13 +7,12 @@
           <v-layout row wrap>
             <v-flex d-flex xs12 md8>
               <v-card color="red lighten-2" dark>
-                <!-- o array funciona, {{ arraycarro1.images[0] }} passar para o componente -->
-                <carro></carro>
+                <carro :identificadores="blocoids" :sources="blocourls"></carro>
               </v-card>
             </v-flex>
             <v-flex d-flex xs12 md4>
               <v-card color="grey darken-3" dark class="hidden-sm-and-down">
-                <carro></carro>
+                <carro :identificadores="blocoids" :sources="blocourls"></carro>
               </v-card>
             </v-flex>
             <v-flex d-flex xs12 md6>
@@ -113,6 +112,7 @@ import latestnews from '~/components/latestnews'
 import morevideos from '~/components/morevideos'
 import cardlandscape from '~/components/card-landscape'
 import carro from '~/components/carro'
+import axios from 'axios'
 export default {
   components: {
     latestnews,
@@ -121,6 +121,9 @@ export default {
     morevideos
   },
   data: () => ({
+    blocourls: [],
+    blocoids: [],
+    array: [],
     arraycarro1: {
       images: [
         'https://images.unsplash.com/photo-1553722686-e94d1b20e9e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
@@ -133,7 +136,36 @@ export default {
     },
     lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
     one:
-      'https://images.unsplash.com/photo-1553643182-15d168e4d680?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
-  })
+      'https://images.unsplash.com/photo-1553643182-15d168e4d680?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
+    identificador: ''
+  }),
+  created: function() {
+    this.identificador = this.$route.params.categoria
+    this.pedido(this.identificador)
+  },
+  methods: {
+    pedido: function(categoria) {
+      const self = this
+      self.blocourls = []
+      self.blocoids = []
+      axios
+        .get(
+          'https://api.unsplash.com/search/photos/?page=1;query=' +
+            categoria +
+            ';client_id=2ebf903d65d58846dba610108cbf428043756525989c37bfd1121174ff28a339'
+        )
+        .then(function(response) {
+          self.array = []
+          self.array.push(response)
+          for (const index in self.array[0].data.results) {
+            self.blocourls.push(self.array[0].data.results[index].urls.regular)
+            self.blocoids.push(self.array[0].data.results[index].id)
+          }
+        })
+        .catch(function(error) {
+          console.log(error)
+        })
+    }
+  }
 }
 </script>

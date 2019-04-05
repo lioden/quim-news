@@ -1,16 +1,24 @@
 <template>
-  <v-carousel hide-delimiters>
-    <v-carousel-item v-for="(item, i) in items" :key="i" :src="item.src">
-      <div class="overlay"></div>
-      <div class="centrado">
-        <p>{{ item.text }}</p>
-      </div>
-    </v-carousel-item>
-  </v-carousel>
+  <div>
+    <v-carousel hide-delimiters>
+      <v-carousel-item v-for="(item, i) in sources" :key="i" :src="item">
+        <nuxt-link :to="`/articles/${identificadores[i]}`">
+          <div class="overlay"></div>
+          <div class="centrado">
+            <p>Id da notícia: {{ identificadores[i] }}</p>
+          </div>
+        </nuxt-link>
+      </v-carousel-item>
+    </v-carousel>
+  </div>
 </template>
 
 <script>
 export default {
+  props: {
+    sources: Array,
+    identificadores: Array
+  },
   data() {
     return {
       items: [
