@@ -3,22 +3,29 @@
     <v-layout>
       <v-flex xs12 sm4 text-xs-center>
         <v-layout row wrap>
-          <v-flex xs12 sm12 text-xs-center class="zoom">
-            <nuxt-link :to="`/articles/${blocoids[0]}`">
+          <v-flex
+            v-for="(value, i) in blocourls.slice(0, 3)"
+            :key="i"
+            xs12
+            sm12
+            text-xs-center
+            class="zoom"
+          >
+            <nuxt-link :to="`/articles/${blocoids[i]}`">
               <v-hover>
                 <v-card
                   slot-scope="{ hover }"
                   class="mx-auto"
                   color="grey lighten-4"
                 >
-                  <v-img :src="blocourls[0]">
+                  <v-img :src="blocourls[i]">
                     <v-expand-transition>
                       <div
                         v-if="hover"
                         class="d-flex red darken-2 v-card--reveal display-1 white--text"
                         style="height: 50%;"
                       >
-                        {{ blocoids[0] }}
+                        {{ blocoids[i] }}
                       </div>
                     </v-expand-transition>
                   </v-img>
@@ -30,45 +37,29 @@
       </v-flex>
       <v-flex xs12 sm4 text-xs-center>
         <v-layout row wrap>
-          <v-flex xs12 sm12 text-xs-center class="zoom">
-            <nuxt-link :to="`/articles/${blocoids[0]}`">
+          <v-flex
+            v-for="(potato, b) in blocourls.slice(3, 7)"
+            :key="(b = b + 3)"
+            xs12
+            sm12
+            text-xs-center
+            class="zoom"
+          >
+            <nuxt-link :to="`/articles/${blocoids[b]}`">
               <v-hover>
                 <v-card
                   slot-scope="{ hover }"
                   class="mx-auto"
                   color="grey lighten-4"
                 >
-                  <v-img :src="blocourls[4]">
+                  <v-img :src="blocourls[b]">
                     <v-expand-transition>
                       <div
                         v-if="hover"
                         class="d-flex red darken-2 v-card--reveal display-1 white--text"
                         style="height: 50%;"
                       >
-                        {{ blocoids[4] }}
-                      </div>
-                    </v-expand-transition>
-                  </v-img>
-                </v-card>
-              </v-hover>
-            </nuxt-link>
-          </v-flex>
-          <v-flex xs12 sm12 text-xs-center class="zoom">
-            <nuxt-link :to="`/articles/${blocoids[0]}`">
-              <v-hover>
-                <v-card
-                  slot-scope="{ hover }"
-                  class="mx-auto"
-                  color="grey lighten-4"
-                >
-                  <v-img :src="blocourls[5]">
-                    <v-expand-transition>
-                      <div
-                        v-if="hover"
-                        class="d-flex red darken-2 v-card--reveal display-1 white--text"
-                        style="height: 50%;"
-                      >
-                        {{ blocoids[5] }}
+                        {{ blocoids[b] }}
                       </div>
                     </v-expand-transition>
                   </v-img>
@@ -78,28 +69,37 @@
           </v-flex>
         </v-layout>
       </v-flex>
-      <v-flex xs12 sm4 text-xs-center class="zoom">
+      <v-flex xs12 sm4 text-xs-center>
         <v-layout row wrap>
-          <v-flex xs12 sm12 text-xs-center>
-            <v-hover>
-              <v-card
-                slot-scope="{ hover }"
-                class="mx-auto"
-                color="grey lighten-4"
-              >
-                <v-img :src="blocourls[1]">
-                  <v-expand-transition>
-                    <div
-                      v-if="hover"
-                      class="d-flex red darken-2 v-card--reveal display-1 white--text"
-                      style="height: 50%;"
-                    >
-                      {{ blocoids[1] }}
-                    </div>
-                  </v-expand-transition>
-                </v-img>
-              </v-card>
-            </v-hover>
+          <v-flex
+            v-for="(potato, b) in blocourls.slice(6, 9)"
+            :key="(b = b + 7)"
+            xs12
+            sm12
+            text-xs-center
+            class="zoom"
+          >
+            <nuxt-link :to="`/articles/${blocoids[b]}`">
+              <v-hover>
+                <v-card
+                  slot-scope="{ hover }"
+                  class="mx-auto"
+                  color="grey lighten-4"
+                >
+                  <v-img :src="blocourls[b]">
+                    <v-expand-transition>
+                      <div
+                        v-if="hover"
+                        class="d-flex red darken-2 v-card--reveal display-1 white--text"
+                        style="height: 50%;"
+                      >
+                        {{ blocoids[b] }}
+                      </div>
+                    </v-expand-transition>
+                  </v-img>
+                </v-card>
+              </v-hover>
+            </nuxt-link>
           </v-flex>
         </v-layout>
       </v-flex>
@@ -253,33 +253,28 @@ export default {
     // categoria: 'football'
   }),
   created: function() {
-    this.pedido('pugs')
+    this.pedido('cats')
   },
   methods: {
     pedido: function(categoria) {
       const self = this
       self.blocourls = []
       self.blocoids = []
-      console.log(
-        'https://api.unsplash.com/search/photos/?page=1;query=' +
-          categoria +
-          ';orientation=portrait;client_id=2ebf903d65d58846dba610108cbf428043756525989c37bfd1121174ff28a339'
-      )
       axios
         .get(
           'https://api.unsplash.com/search/photos/?page=1;query=' +
             categoria +
-            ';orientation=portrait;client_id=2ebf903d65d58846dba610108cbf428043756525989c37bfd1121174ff28a339'
+            ';client_id=2ebf903d65d58846dba610108cbf428043756525989c37bfd1121174ff28a339'
         )
         .then(function(response) {
-          console.log(response)
           self.array = []
           self.array.push(response)
           for (const index in self.array[0].data.results) {
             self.blocourls.push(self.array[0].data.results[index].urls.regular)
             self.blocoids.push(self.array[0].data.results[index].id)
+            console.log('--------------blocorurls------------------')
+            console.log(self.blocourls)
           }
-          console.log(self.blocourls.slice(0, 3))
         })
         .catch(function(error) {
           console.log(error)
