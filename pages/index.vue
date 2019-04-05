@@ -7,6 +7,7 @@
     >
       Notícias Recentes
     </p>
+    <br />
     <hr class="grey--text" />
     <gridrecentes></gridrecentes>
     <br /><br /><br />

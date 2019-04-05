@@ -1,109 +1,5 @@
 <template>
   <div>
-    <v-layout>
-      <v-flex xs12 sm4 text-xs-center>
-        <v-layout row wrap>
-          <v-flex
-            v-for="(value, i) in blocourls.slice(0, 3)"
-            :key="i"
-            xs12
-            sm12
-            text-xs-center
-            class="zoom"
-          >
-            <nuxt-link :to="`/articles/${blocoids[i]}`">
-              <v-hover>
-                <v-card
-                  slot-scope="{ hover }"
-                  class="mx-auto"
-                  color="grey lighten-4"
-                >
-                  <v-img :src="blocourls[i]">
-                    <v-expand-transition>
-                      <div
-                        v-if="hover"
-                        class="d-flex red darken-2 v-card--reveal display-1 white--text"
-                        style="height: 50%;"
-                      >
-                        {{ blocoids[i] }}
-                      </div>
-                    </v-expand-transition>
-                  </v-img>
-                </v-card>
-              </v-hover>
-            </nuxt-link>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-      <v-flex xs12 sm4 text-xs-center>
-        <v-layout row wrap>
-          <v-flex
-            v-for="(potato, b) in blocourls.slice(3, 7)"
-            :key="(b = b + 3)"
-            xs12
-            sm12
-            text-xs-center
-            class="zoom"
-          >
-            <nuxt-link :to="`/articles/${blocoids[b]}`">
-              <v-hover>
-                <v-card
-                  slot-scope="{ hover }"
-                  class="mx-auto"
-                  color="grey lighten-4"
-                >
-                  <v-img :src="blocourls[b]">
-                    <v-expand-transition>
-                      <div
-                        v-if="hover"
-                        class="d-flex red darken-2 v-card--reveal display-1 white--text"
-                        style="height: 50%;"
-                      >
-                        {{ blocoids[b] }}
-                      </div>
-                    </v-expand-transition>
-                  </v-img>
-                </v-card>
-              </v-hover>
-            </nuxt-link>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-      <v-flex xs12 sm4 text-xs-center>
-        <v-layout row wrap>
-          <v-flex
-            v-for="(potato, b) in blocourls.slice(6, 9)"
-            :key="(b = b + 7)"
-            xs12
-            sm12
-            text-xs-center
-            class="zoom"
-          >
-            <nuxt-link :to="`/articles/${blocoids[b]}`">
-              <v-hover>
-                <v-card
-                  slot-scope="{ hover }"
-                  class="mx-auto"
-                  color="grey lighten-4"
-                >
-                  <v-img :src="blocourls[b]">
-                    <v-expand-transition>
-                      <div
-                        v-if="hover"
-                        class="d-flex red darken-2 v-card--reveal display-1 white--text"
-                        style="height: 50%;"
-                      >
-                        {{ blocoids[b] }}
-                      </div>
-                    </v-expand-transition>
-                  </v-img>
-                </v-card>
-              </v-hover>
-            </nuxt-link>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-    </v-layout>
     <v-layout align-center>
       <v-flex xs12 sm4 text-xs-center>
         <div>
@@ -142,103 +38,116 @@
         </div>
       </v-flex>
     </v-layout>
+    <br />
     <hr class="grey--text" />
-    <v-container fluid grid-list>
-      <v-layout row wrap>
-        <v-flex d-flex xs12 sm6 md4 style="height:1200px">
-          <v-layout row wrap>
-            <v-flex d-flex>
-              <v-layout row wrap>
-                <v-flex d-flex xs12 style="height:400px">
-                  <nuxt-link :to="`/articles/${blocoids[0]}`"
-                    ><v-img style="height:400px" :src="blocourls[0]"></v-img
-                  ></nuxt-link>
-                </v-flex>
-                <v-flex d-flex xs12 style="height:400px">
-                  <nuxt-link :to="`/articles/${blocoids[1]}`"
-                    ><v-img style="height:400px" :src="blocourls[1]"></v-img
-                  ></nuxt-link>
-                </v-flex>
-                <v-flex d-flex xs12 style="height:400px">
-                  <nuxt-link :to="`/articles/${blocoids[2]}`"
-                    ><v-img style="height:400px" :src="blocourls[2]"></v-img
-                  ></nuxt-link>
-                </v-flex>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-        </v-flex>
-        <v-flex d-flex xs12 sm6 md3 style="height:1200px">
-          <v-layout row wrap>
-            <v-flex d-flex>
-              <v-layout row wrap>
-                <v-flex d-flex xs12 style="height:600px">
-                  <nuxt-link :to="`/articles/${blocoids[3]}`"
-                    ><v-img style="height:600px" :src="blocourls[3]"></v-img
-                  ></nuxt-link>
-                </v-flex>
-                <v-flex d-flex xs12 style="height:600px">
-                  <nuxt-link :to="`/articles/${blocoids[4]}`"
-                    ><v-img style="height:600px" :src="blocourls[4]"></v-img
-                  ></nuxt-link>
-                </v-flex>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-        </v-flex>
-        <v-flex d-flex xs6 sm6 md3 style="height:1200px">
-          <v-layout row wrap>
-            <v-flex d-flex>
-              <v-layout row wrap>
-                <v-flex d-flex xs12 style="height:400px">
-                  <nuxt-link :to="`/articles/${blocoids[5]}`"
-                    ><v-img style="height:400px" :src="blocourls[5]"></v-img
-                  ></nuxt-link>
-                </v-flex>
-                <v-flex d-flex xs12 style="height:400px">
-                  <nuxt-link :to="`/articles/${blocoids[6]}`"
-                    ><v-img style="height:400px" :src="blocourls[6]"></v-img
-                  ></nuxt-link>
-                </v-flex>
-                <v-flex d-flex xs12 style="height:400px">
-                  <nuxt-link :to="`/articles/${blocoids[7]}`"
-                    ><v-img style="height:400px" :src="blocourls[7]"></v-img
-                  ></nuxt-link>
-                </v-flex>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-        </v-flex>
-        <v-flex d-flex xs6 sm6 md2 style="height:1200px">
-          <v-layout row wrap>
-            <v-flex d-flex>
-              <v-layout row wrap>
-                <v-flex d-flex xs12 style="height:300px">
-                  <nuxt-link :to="`/articles/${blocoids[8]}`"
-                    ><v-img style="height:300px" :src="blocourls[8]"></v-img
-                  ></nuxt-link>
-                </v-flex>
-                <v-flex d-flex xs12 style="height:300px">
-                  <nuxt-link :to="`/articles/${blocoids[9]}`"
-                    ><v-img style="height:300px" :src="blocourls[9]"></v-img
-                  ></nuxt-link>
-                </v-flex>
-                <v-flex d-flex xs12 style="height:300px">
-                  <nuxt-link :to="`/articles/${blocoids[0]}`"
-                    ><v-img style="height:300px" :src="blocourls[0]"></v-img
-                  ></nuxt-link>
-                </v-flex>
-                <v-flex d-flex xs12 style="height:300px">
-                  <nuxt-link :to="`/articles/${blocoids[1]}`"
-                    ><v-img style="height:300px" :src="blocourls[1]"></v-img
-                  ></nuxt-link>
-                </v-flex>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-        </v-flex>
-      </v-layout>
-    </v-container>
+    <br />
+    <v-layout>
+      <v-flex xs12 sm4 text-xs-center>
+        <v-layout row wrap>
+          <v-flex
+            v-for="(value, i) in blocourls.slice(0, 3)"
+            :key="i"
+            xs12
+            sm12
+            text-xs-center
+            class="zoom"
+          >
+            <nuxt-link :to="`/articles/${blocoids[i]}`">
+              <v-hover>
+                <v-card
+                  slot-scope="{ hover }"
+                  class="mx-auto"
+                  color="grey lighten-4"
+                  style="height:400px"
+                >
+                  <v-img style="height:400px" :src="blocourls[i]">
+                    <v-expand-transition>
+                      <div
+                        v-if="hover"
+                        class="d-flex red darken-2 v-card--reveal display-1 white--text"
+                        style="height: 50%;"
+                      >
+                        {{ blocoids[i] }}
+                      </div>
+                    </v-expand-transition>
+                  </v-img>
+                </v-card>
+              </v-hover>
+            </nuxt-link>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+      <v-flex xs12 sm4 text-xs-center>
+        <v-layout row wrap>
+          <v-flex
+            v-for="(potato, b) in blocourls.slice(3, 7)"
+            :key="(b = b + 3)"
+            xs12
+            sm12
+            text-xs-center
+            class="zoom"
+          >
+            <nuxt-link :to="`/articles/${blocoids[b]}`">
+              <v-hover>
+                <v-card
+                  slot-scope="{ hover }"
+                  class="mx-auto"
+                  color="grey lighten-4"
+                  style="height:300px"
+                >
+                  <v-img style="height:300px" :src="blocourls[b]">
+                    <v-expand-transition>
+                      <div
+                        v-if="hover"
+                        class="d-flex red darken-2 v-card--reveal display-1 white--text"
+                        style="height: 50%;"
+                      >
+                        {{ blocoids[b] }}
+                      </div>
+                    </v-expand-transition>
+                  </v-img>
+                </v-card>
+              </v-hover>
+            </nuxt-link>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+      <v-flex xs12 sm4 text-xs-center>
+        <v-layout row wrap>
+          <v-flex
+            v-for="(potato, b) in blocourls.slice(6, 9)"
+            :key="(b = b + 7)"
+            xs12
+            sm12
+            text-xs-center
+            class="zoom"
+          >
+            <nuxt-link :to="`/articles/${blocoids[b]}`">
+              <v-hover>
+                <v-card
+                  slot-scope="{ hover }"
+                  class="mx-auto"
+                  color="grey lighten-4"
+                  style="height:400px"
+                >
+                  <v-img style="height:400px" :src="blocourls[b]">
+                    <v-expand-transition>
+                      <div
+                        v-if="hover"
+                        class="d-flex red darken-2 v-card--reveal display-1 white--text"
+                        style="height: 50%;"
+                      >
+                        {{ blocoids[b] }}
+                      </div>
+                    </v-expand-transition>
+                  </v-img>
+                </v-card>
+              </v-hover>
+            </nuxt-link>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+    </v-layout>
   </div>
 </template>
 
