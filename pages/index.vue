@@ -8,10 +8,8 @@
       Notícias Recentes
     </p>
     <br />
-    <hr class="grey--text" />
+    <hr color="grey" />
     <gridrecentes></gridrecentes>
-    <br /><br /><br />
-    <hr class="grey--text" />
   </div>
 </template>
 
@@ -25,6 +23,11 @@ export default {
 </script>
 
 <style>
+p {
+  font-weight: bold;
+  text-shadow: 0px 1px 2px black;
+}
+
 .cartao {
   padding-top: 30px;
 }

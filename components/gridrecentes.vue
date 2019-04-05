@@ -1,45 +1,50 @@
 <template>
   <div>
     <v-layout align-center>
-      <v-flex xs12 sm4 text-xs-center>
-        <div>
-          <v-btn flat color="white" @click="pedido('sports')">sports</v-btn>
+      <v-flex xs12 sm4>
+        <div class="outerbutton">
+          <div class="button" @click="pedido('culture')">
+            <div class="buttontext">Cultura</div>
+          </div>
         </div>
       </v-flex>
       <v-flex xs12 sm4 text-xs-center>
-        <div>
-          <v-btn flat color="white" @click="pedido('culture')">culture</v-btn>
+        <div class="outerbutton">
+          <div class="button" @click="pedido('sports')">
+            <div class="buttontext">Desporto</div>
+          </div>
         </div>
       </v-flex>
       <v-flex xs12 sm4 text-xs-center>
-        <div>
-          <v-btn flat color="white" @click="pedido('business')">business</v-btn>
+        <div class="outerbutton">
+          <div class="button" @click="pedido('education')">
+            <div class="buttontext">Educação</div>
+          </div>
         </div>
       </v-flex>
       <v-flex xs12 sm4 text-xs-center>
-        <div>
-          <v-btn flat color="white" @click="pedido('entertainment')"
-            >entertainment</v-btn
-          >
+        <div class="outerbutton">
+          <div class="button" @click="pedido('science')">
+            <div class="buttontext">Ciência</div>
+          </div>
         </div>
       </v-flex>
       <v-flex xs12 sm4 text-xs-center>
-        <div>
-          <v-btn flat color="white" @click="pedido('technology')"
-            >technology</v-btn
-          >
+        <div class="outerbutton">
+          <div class="button" @click="pedido('business')">
+            <div class="buttontext">Negócios</div>
+          </div>
         </div>
       </v-flex>
       <v-flex xs12 sm4 text-xs-center>
-        <div>
-          <v-btn flat color="white" @click="pedido('education')"
-            >education</v-btn
-          >
+        <div class="outerbutton">
+          <div class="button" @click="pedido('entertainment')">
+            <div class="buttontext">Entretenimento</div>
+          </div>
         </div>
       </v-flex>
     </v-layout>
-    <br />
-    <hr class="grey--text" />
+    <hr color="grey" />
     <br />
     <v-layout>
       <v-flex xs12 sm4 text-xs-center>
@@ -162,7 +167,7 @@ export default {
     // categoria: 'football'
   }),
   created: function() {
-    this.pedido('cats')
+    this.pedido('aveiro')
   },
   methods: {
     pedido: function(categoria) {
@@ -219,5 +224,42 @@ a {
   transform: scale(
     1.1
   ); /* Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.outerbutton {
+  margin: 0px 5px;
+}
+.button {
+  cursor: pointer;
+  border-radius: 0px;
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  background: linear-gradient(to right, black 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 0.3s ease-out;
+}
+
+.button:hover {
+  background-position: left bottom;
+}
+
+.buttontext {
+  font-weight: bold;
+  text-shadow: 0px 1px 2px black;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 15px;
+  line-height: 50px;
+  color: white;
+  transition: all 0.6s ease-out;
+  display: block;
+}
+
+.buttontext:hover {
+  color: white;
+  text-shadow: 0px 1px 2px grey;
 }
 </style>
