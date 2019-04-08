@@ -2,7 +2,7 @@
   <div>
     <br />
     <p
-      class="font-weight-bold display-1 grey--text text--lighten-3 text-xs-right"
+      class="font-weight-regular display-1 blue--text text--darken-2 text-xs-right"
       style="padding-left:10px"
     >
       Notícias Recentes
@@ -24,8 +24,7 @@ export default {
 
 <style>
 p {
-  font-weight: bold;
-  text-shadow: 0px 1px 2px black;
+  text-shadow: 0px 0px 0px black;
 }
 
 .cartao {

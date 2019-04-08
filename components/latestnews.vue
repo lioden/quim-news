@@ -4,24 +4,33 @@
       <v-layout row wrap>
         <v-flex d-flex xs12>
           <v-card
-            color="grey lighten-1"
+            class="gradient"
             dark
             style="box-shadow: 2px 2px 8px 5px grey"
           >
-            <v-card color="grey darken-3" dark height="70">
+            <v-card color="white darken-3" dark>
               <v-card-text
-                class="display-1 grey--text text--lighten-3 text-xs-right"
+                class="black--text text--darken-1 text-xs-right customtitle"
               >
-                Latest News
+                Últimas Notícias
               </v-card-text>
             </v-card>
+            <hr />
+            <cardlandscape
+              v-for="(value, i) in images.slice(0, 4)"
+              :key="i"
+              class="hoverable"
+              :image="images[i]"
+              :title="titles[i]"
+            ></cardlandscape>
+            <cardlandscapeinv
+              v-for="(value, i) in images.slice(4, 9)"
+              :key="(i = i + 4)"
+              class="hoverable"
+              :image="images[i]"
+              :title="titles[i]"
+            ></cardlandscapeinv>
             <br />
-            <cardlandscape></cardlandscape>
-            <cardlandscape></cardlandscape>
-            <cardlandscape></cardlandscape>
-            <cardlandscape></cardlandscape>
-            <cardlandscape></cardlandscape>
-            <cardlandscape></cardlandscape>
           </v-card>
         </v-flex>
       </v-layout>
@@ -31,9 +40,15 @@
 
 <script>
 import cardlandscape from '~/components/card-landscape'
+import cardlandscapeinv from '~/components/card-landscape-inverted'
 export default {
   components: {
-    cardlandscape
+    cardlandscape,
+    cardlandscapeinv
+  },
+  props: {
+    images: Array,
+    titles: Array
   },
   data: () => ({
     lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
@@ -42,3 +57,15 @@ export default {
   })
 }
 </script>
+
+<style>
+.gradient {
+  background-image: linear-gradient(
+    180deg,
+    black -25%,
+    RoyalBlue 35%,
+    RoyalBlue 65%,
+    black 125%
+  );
+}
+</style>

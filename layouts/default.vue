@@ -47,9 +47,7 @@
       </v-toolbar-title>
       <v-spacer />
     </v-toolbar>
-    <div
-      style="background-image: linear-gradient(to bottom, #5a5a5a, white, white, #616161);"
-    >
+    <div style="background-image: linear-gradient(to bottom, white, white);">
       <div class="margens">
         <nuxt />
       </div>
@@ -129,6 +127,6 @@ export default {
 <style media="screen">
 .margens {
   padding-top: 80px;
-  margin: 20px 20px;
+  margin: 30px 30px;
 }
 </style>

@@ -97,7 +97,7 @@
           </v-layout>
         </v-flex>
         <v-flex d-flex xs12 md3>
-          <morevideos title="Vídeos Relacionados"></morevideos>
+          <related title="Vídeos Relacionados"></related>
         </v-flex>
       </v-layout>
     </v-container>
@@ -110,7 +110,7 @@
 
 <script>
 import latestnews from '~/components/latestnews'
-import morevideos from '~/components/morevideos'
+import related from '~/components/related'
 import cardlandscape from '~/components/card-landscape'
 import carro from '~/components/carro'
 export default {
@@ -118,7 +118,7 @@ export default {
     latestnews,
     cardlandscape,
     carro,
-    morevideos
+    related
   },
   data: () => ({
     arraycarro1: {

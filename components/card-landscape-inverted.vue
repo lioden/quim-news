@@ -1,18 +1,12 @@
 <template>
-  <v-container fluid grid-list style="padding:0px 5px 0px">
+  <v-container fluid grid-list style="padding:10px 5px 0px">
     <v-layout row wrap>
       <v-flex d-flex xs12 md12>
-        <v-card color="grey darken-3" dark>
+        <v-card color="white darken-2" dark>
           <v-layout row wrap style="margin:0px">
-            <v-flex d-flex xs12 md7 style="height:150px;padding:0px">
-              <v-container
-                bg
-                fill-height
-                grid-list
-                text-xs-center
-                style="padding:0px"
-              >
-                <v-layout row wrap align-center style="padding:0px">
+            <v-flex d-flex xs12 md7 class="whitecard">
+              <v-container bg fill-height grid-list text-xs-center>
+                <v-layout row wrap align-center>
                   <v-flex class="hifens">
                     <p>{{ title }}</p>
                   </v-flex>
@@ -55,5 +49,13 @@ p {
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
+}
+.whitecard {
+  height: 150px;
+  padding: 0px;
+  color: black;
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: black;
 }
 </style>

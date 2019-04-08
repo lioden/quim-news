@@ -69,7 +69,7 @@
                     <v-expand-transition>
                       <div
                         v-if="hover"
-                        class="d-flex red darken-2 v-card--reveal display-1 white--text"
+                        class="d-flex blue darken-2 v-card--reveal display-1 white--text"
                         style="height: 50%;"
                       >
                         {{ titles[i] }}
@@ -104,7 +104,7 @@
                     <v-expand-transition>
                       <div
                         v-if="hover"
-                        class="d-flex red darken-2 v-card--reveal display-1 white--text"
+                        class="d-flex blue darken-2 v-card--reveal display-1 white--text"
                         style="height: 50%;"
                       >
                         {{ titles[b] }}
@@ -139,7 +139,7 @@
                     <v-expand-transition>
                       <div
                         v-if="hover"
-                        class="d-flex red darken-2 v-card--reveal display-1 white--text"
+                        class="d-flex blue darken-2 v-card--reveal display-1 white--text"
                         style="height: 50%;"
                       >
                         {{ titles[b] }}
@@ -237,7 +237,7 @@ a {
   height: 100%;
   display: block;
 
-  background: linear-gradient(to right, black 50%, transparent 50%);
+  background: linear-gradient(to right, dodgerblue 50%, transparent 50%);
   background-size: 200% 100%;
   background-position: right bottom;
   transition: all 0.3s ease-out;
@@ -249,12 +249,11 @@ a {
 
 .buttontext {
   font-weight: bold;
-  text-shadow: 0px 1px 2px black;
   text-transform: uppercase;
   text-align: center;
   font-size: 15px;
   line-height: 50px;
-  color: white;
+  color: black;
   transition: all 0.6s ease-out;
   display: block;
 }

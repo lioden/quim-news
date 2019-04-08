@@ -1,25 +1,19 @@
 <template>
   <div>
     <!-- Primeira Grid -->
-    <v-container fluid grid-list style="padding:2% 0px 2%">
+    <v-container fluid grid-list-sm>
       <v-layout row wrap>
         <v-flex d-flex xs12 md9>
           <v-layout row wrap>
             <v-flex d-flex xs12 md12>
               <v-flex d-flex xs12 md12>
                 <v-layout row wrap>
-                  <v-flex d-flex xs12 md12 style="padding-right:10px;">
+                  <v-flex d-flex xs12 md12>
                     <v-card color="grey lighten-3" dark>
-                      <v-card-text
-                        class="black--text display-2 text-xs-center"
-                        style="padding-top:30px"
-                      >
+                      <v-card-text class="black--text display-2 text-xs-center">
                         {{ location }}
                       </v-card-text>
-                      <v-card-text
-                        class="black--text headline text-xs-center"
-                        style="padding-top:30px"
-                      >
+                      <v-card-text class="black--text headline text-xs-center">
                         {{ subtitle }}
                       </v-card-text>
                       <v-card-text class="black--text caption text-xs-right">
@@ -30,24 +24,11 @@
                 </v-layout>
               </v-flex>
             </v-flex>
-            <v-flex d-flex xs12 md4 style="padding-top:10px">
-              <morevideos
-                class="hidden-sm-and-down"
-                title="Notícias Relacionadas"
-              ></morevideos>
-            </v-flex>
-            <v-flex d-flex xs12 md8>
+            <v-flex d-flex xs12 md12>
               <v-layout row wrap>
-                <v-flex
-                  d-flex
-                  xs12
-                  md12
-                  style="padding-left:10px; padding-right:10px"
-                >
+                <v-flex d-flex xs12 md12>
                   <v-card color="grey lighten-3" dark>
-                    <v-img :src="image"></v-img>
-                    <br />
-                    <hr />
+                    <v-img height="500px" :src="image"></v-img>
                     <br />
                     <v-card-text class="black--text subheading">
                       <p>
@@ -67,12 +48,11 @@
           </v-layout>
         </v-flex>
         <v-flex d-flex xs12 md3>
-          <latestnews class="hidden-sm-and-down"></latestnews>
-        </v-flex>
-        <v-flex d-flex xs12 md4 style="padding-top:50px">
-          <v-card color="grey darken-3" dark class="hidden-md-and-up">
-            <morevideos title="Notícias relacionadas"></morevideos>
-          </v-card>
+          <related
+            :relatedtitles="relatedTitles"
+            :relatedimages="relatedImages"
+            sectiontitle="Notícias Relacionadas"
+          ></related>
         </v-flex>
       </v-layout>
     </v-container>
@@ -81,17 +61,17 @@
 </template>
 
 <script>
-import latestnews from '~/components/latestnews'
-import morevideos from '~/components/morevideos'
+import related from '~/components/related'
 import axios from 'axios'
 export default {
   components: {
-    latestnews,
-    morevideos
+    related
   },
   data: () => ({
     lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
     identificador: '',
+    relatedImages: [],
+    relatedTitles: [],
     array: [],
     id: 'placeholder',
     subtitle: '',
@@ -114,6 +94,17 @@ export default {
       )
       .then(function(response) {
         self.array.push(response)
+        for (const i in self.array[0].data.related_collections.results) {
+          self.relatedTitles.push(
+            self.array[0].data.related_collections.results[i].cover_photo
+              .alt_description
+          )
+          self.relatedImages.push(
+            self.array[0].data.related_collections.results[i].cover_photo.urls
+              .regular
+          )
+        }
+        console.log(self.relatedTitles)
         self.id = self.array[0].data.id
         self.image = self.array[0].data.urls.regular
         self.location = self.array[0].data.location.title

@@ -25,10 +25,10 @@
               </v-flex>
             </v-flex>
             <v-flex d-flex xs12 md4 style="padding-top:10px">
-              <morevideos
+              <related
                 class="hidden-sm-and-down"
                 title="Notícias Relacionadas"
-              ></morevideos>
+              ></related>
             </v-flex>
             <v-flex d-flex xs12 md8>
               <v-layout row wrap>
@@ -82,7 +82,7 @@
         </v-flex>
         <v-flex d-flex xs12 md4 style="padding-top:50px">
           <v-card color="grey darken-3" dark class="hidden-md-and-up">
-            <morevideos title="Notícias relacionadas"></morevideos>
+            <related title="Notícias relacionadas"></related>
           </v-card>
         </v-flex>
       </v-layout>
@@ -93,13 +93,13 @@
 
 <script>
 import latestnews from '~/components/latestnews'
-import morevideos from '~/components/morevideos'
+import related from '~/components/related'
 import carroartigo from '~/components/carroartigo'
 export default {
   components: {
     latestnews,
     carroartigo,
-    morevideos
+    related
   },
   data: () => ({
     arraycarro1: {

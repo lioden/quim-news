@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <v-carousel hide-delimiters>
-      <v-carousel-item v-for="(item, i) in sources" :key="i" :src="item">
-        <nuxt-link :to="`/articles/${identificadores[i]}`">
-          <div class="overlay"></div>
-          <div class="centrado headline">
-            <p>{{ titles[i] }}</p>
-          </div>
-        </nuxt-link>
-      </v-carousel-item>
-    </v-carousel>
-  </div>
+  <v-carousel hide-delimiters>
+    <v-carousel-item v-for="(item, i) in sources" :key="i" :src="item">
+      <nuxt-link :to="`/articles/${identificadores[i]}`">
+        <div class="overlay"></div>
+        <div class="centrado headline">
+          <p>{{ titles[i] }}</p>
+        </div>
+      </nuxt-link>
+    </v-carousel-item>
+  </v-carousel>
 </template>
 
 <script>
