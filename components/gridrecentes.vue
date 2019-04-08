@@ -1,42 +1,42 @@
 <template>
   <div>
-    <v-layout align-center>
-      <v-flex xs12 sm4>
+    <v-layout row wrap>
+      <v-flex xs6 md2>
         <div class="outerbutton">
           <div class="button" @click="pedido('culture')">
             <div class="buttontext">Cultura</div>
           </div>
         </div>
       </v-flex>
-      <v-flex xs12 sm4 text-xs-center>
+      <v-flex xs6 md2>
         <div class="outerbutton">
           <div class="button" @click="pedido('sports')">
             <div class="buttontext">Desporto</div>
           </div>
         </div>
       </v-flex>
-      <v-flex xs12 sm4 text-xs-center>
+      <v-flex xs6 md2>
         <div class="outerbutton">
           <div class="button" @click="pedido('education')">
             <div class="buttontext">Educação</div>
           </div>
         </div>
       </v-flex>
-      <v-flex xs12 sm4 text-xs-center>
+      <v-flex xs6 md2>
         <div class="outerbutton">
           <div class="button" @click="pedido('science')">
             <div class="buttontext">Ciência</div>
           </div>
         </div>
       </v-flex>
-      <v-flex xs12 sm4 text-xs-center>
+      <v-flex xs6 md2>
         <div class="outerbutton">
           <div class="button" @click="pedido('business')">
             <div class="buttontext">Negócios</div>
           </div>
         </div>
       </v-flex>
-      <v-flex xs12 sm4 text-xs-center>
+      <v-flex xs6 md2>
         <div class="outerbutton">
           <div class="button" @click="pedido('entertainment')">
             <div class="buttontext">Entretenimento</div>
@@ -72,7 +72,7 @@
                         class="d-flex red darken-2 v-card--reveal display-1 white--text"
                         style="height: 50%;"
                       >
-                        {{ blocoids[i] }}
+                        {{ titles[i] }}
                       </div>
                     </v-expand-transition>
                   </v-img>
@@ -107,7 +107,7 @@
                         class="d-flex red darken-2 v-card--reveal display-1 white--text"
                         style="height: 50%;"
                       >
-                        {{ blocoids[b] }}
+                        {{ titles[b] }}
                       </div>
                     </v-expand-transition>
                   </v-img>
@@ -142,7 +142,7 @@
                         class="d-flex red darken-2 v-card--reveal display-1 white--text"
                         style="height: 50%;"
                       >
-                        {{ blocoids[b] }}
+                        {{ titles[b] }}
                       </div>
                     </v-expand-transition>
                   </v-img>
@@ -163,6 +163,7 @@ export default {
     dialog: false,
     blocourls: [],
     blocoids: [],
+    titles: [],
     array: []
     // categoria: 'football'
   }),
@@ -174,6 +175,7 @@ export default {
       const self = this
       self.blocourls = []
       self.blocoids = []
+      self.titles = []
       axios
         .get(
           'https://api.unsplash.com/search/photos/?page=1;query=' +
@@ -186,8 +188,7 @@ export default {
           for (const index in self.array[0].data.results) {
             self.blocourls.push(self.array[0].data.results[index].urls.regular)
             self.blocoids.push(self.array[0].data.results[index].id)
-            console.log('--------------blocorurls------------------')
-            console.log(self.blocourls)
+            self.titles.push(self.array[0].data.results[index].alt_description)
           }
         })
         .catch(function(error) {

@@ -4,12 +4,6 @@
       <v-flex d-flex xs12 md12>
         <v-card color="grey darken-3" dark>
           <v-layout row wrap style="margin:0px">
-            <v-flex d-flex xs12 md5 style="padding:0px">
-              <v-img
-                style="object-fit: fill; height:150px"
-                :src="image"
-              ></v-img>
-            </v-flex>
             <v-flex d-flex xs12 md7 style="height:150px;padding:0px">
               <v-container
                 bg
@@ -24,6 +18,12 @@
                   </v-flex>
                 </v-layout>
               </v-container>
+            </v-flex>
+            <v-flex d-flex xs12 md5 style="padding:0px">
+              <v-img
+                style="object-fit: fill; height:150px"
+                :src="image"
+              ></v-img>
             </v-flex>
           </v-layout>
         </v-card>

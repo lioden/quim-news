@@ -1,32 +1,37 @@
 <template>
   <div>
     <!-- Primeira Grid -->
-    <v-container fluid grid-list-xl>
+    <v-container fluid grid-list-xl class="pa-0">
       <v-layout row wrap>
         <v-flex d-flex xs12 md8>
           <v-layout row wrap>
-            <v-flex d-flex xs12 md8>
-              <v-card color="red lighten-2" dark>
-                <carro :identificadores="blocoids" :sources="blocourls"></carro>
-              </v-card>
-            </v-flex>
-            <v-flex d-flex xs12 md4>
-              <v-card color="grey darken-3" dark class="hidden-sm-and-down">
-                <carro :identificadores="blocoids" :sources="blocourls"></carro>
+            <v-flex d-flex xs12 md12>
+              <v-card color="black lighten-2" dark>
+                <carro
+                  :titles="titles"
+                  :identificadores="blocoids"
+                  :sources="blocourls"
+                ></carro>
               </v-card>
             </v-flex>
             <v-flex d-flex xs12 md6>
               <v-layout row wrap>
                 <v-flex d-flex xs6 md12>
-                  <cardlandscape></cardlandscape>
+                  <cardlandscape
+                    :title="titles[0]"
+                    :image="blocourls[0]"
+                  ></cardlandscape>
                 </v-flex>
                 <v-flex d-flex xs6 md12>
-                  <cardlandscape></cardlandscape>
+                  <cardlandscapeinv
+                    :title="titles[1]"
+                    :image="blocourls[1]"
+                  ></cardlandscapeinv>
                 </v-flex>
               </v-layout>
             </v-flex>
             <v-flex d-flex xs12 md6>
-              <v-card color="green darken-3" dark height="400">
+              <v-card color="red darken-3" dark height="400">
                 <iframe
                   width="100%"
                   height="100%"
@@ -38,12 +43,14 @@
               </v-card>
             </v-flex>
             <v-flex d-flex xs12 md12>
-              <v-card color="black lighten-2" dark height="400">
+              <v-card color="transparent" dark height="400">
                 <v-img
-                  style="min-height:250px;max-height:250px"
-                  src="https://images.unsplash.com/photo-1553643182-15d168e4d680?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                  style="min-height:300px;max-height:300px"
+                  :src="blocourls[4]"
                 ></v-img>
-                <v-card-text>{{ lorem.slice(0, 40) }}</v-card-text>
+                <v-card-text class="headline text-capitalize">{{
+                  titles[4]
+                }}</v-card-text>
               </v-card>
             </v-flex>
           </v-layout>
@@ -111,17 +118,20 @@
 import latestnews from '~/components/latestnews'
 import morevideos from '~/components/morevideos'
 import cardlandscape from '~/components/card-landscape'
+import cardlandscapeinv from '~/components/card-landscape-inverted'
 import carro from '~/components/carro'
 import axios from 'axios'
 export default {
   components: {
     latestnews,
     cardlandscape,
+    cardlandscapeinv,
     carro,
     morevideos
   },
   data: () => ({
     blocourls: [],
+    titles: [],
     blocoids: [],
     array: [],
     arraycarro1: {
@@ -148,6 +158,7 @@ export default {
       const self = this
       self.blocourls = []
       self.blocoids = []
+      self.titles = []
       axios
         .get(
           'https://api.unsplash.com/search/photos/?page=1;query=' +
@@ -160,6 +171,7 @@ export default {
           for (const index in self.array[0].data.results) {
             self.blocourls.push(self.array[0].data.results[index].urls.regular)
             self.blocoids.push(self.array[0].data.results[index].id)
+            self.titles.push(self.array[0].data.results[index].alt_description)
           }
         })
         .catch(function(error) {
@@ -169,3 +181,11 @@ export default {
   }
 }
 </script>
+
+<style>
+.transparent {
+  background-color: black !important;
+  opacity: 0.9;
+  border-color: transparent !important;
+}
+</style>

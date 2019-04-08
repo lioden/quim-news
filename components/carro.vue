@@ -4,8 +4,8 @@
       <v-carousel-item v-for="(item, i) in sources" :key="i" :src="item">
         <nuxt-link :to="`/articles/${identificadores[i]}`">
           <div class="overlay"></div>
-          <div class="centrado">
-            <p>Id da notícia: {{ identificadores[i] }}</p>
+          <div class="centrado headline">
+            <p>{{ titles[i] }}</p>
           </div>
         </nuxt-link>
       </v-carousel-item>
@@ -17,7 +17,8 @@
 export default {
   props: {
     sources: Array,
-    identificadores: Array
+    identificadores: Array,
+    titles: Array
   },
   data() {
     return {

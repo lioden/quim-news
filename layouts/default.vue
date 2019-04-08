@@ -47,13 +47,13 @@
       </v-toolbar-title>
       <v-spacer />
     </v-toolbar>
-    <v-content
+    <div
       style="background-image: linear-gradient(to bottom, #5a5a5a, white, white, #616161);"
     >
-      <v-container>
+      <div class="margens">
         <nuxt />
-      </v-container>
-    </v-content>
+      </div>
+    </div>
     <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
       <v-list>
         <v-list-tile @click.native="right = !right">
@@ -125,3 +125,10 @@ export default {
   }
 }
 </script>
+
+<style media="screen">
+.margens {
+  padding-top: 80px;
+  margin: 20px 20px;
+}
+</style>
