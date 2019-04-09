@@ -11,28 +11,16 @@
           <v-layout row wrap>
             <v-flex d-flex xs12 md12>
               <v-card color="red darken-2" dark height="525px">
-                <carro
-                  :titles="titles"
-                  :identificadores="blocoids"
-                  :sources="blocourls"
-                ></carro>
+                carro aqui
               </v-card>
             </v-flex>
             <v-flex d-flex xs12 md6>
               <v-layout row wrap>
                 <v-flex d-flex xs6 md12>
-                  <cardlandscape
-                    class="hoverable"
-                    :title="titles[0]"
-                    :image="blocourls[0]"
-                  ></cardlandscape>
+                  cardlandscape aqui
                 </v-flex>
                 <v-flex d-flex xs6 md12>
-                  <cardlandscapeinv
-                    class="hoverable"
-                    :title="titles[1]"
-                    :image="blocourls[1]"
-                  ></cardlandscapeinv>
+                  cardlandscapeinv aqui
                 </v-flex>
               </v-layout>
             </v-flex>
@@ -46,21 +34,26 @@
                 allowfullscreen
               ></iframe>
             </v-flex>
-            <v-flex d-flex xs12 md12>
-              <v-card color="transparent" dark height="400">
-                <v-img
-                  style="min-height:300px;max-height:300px"
-                  :src="blocourls[4]"
-                ></v-img>
-                <v-card-text class="headline text-capitalize">{{
-                  titles[4]
-                }}</v-card-text>
+            <v-flex d-flex xs6 md6>
+              <v-card color="#2e7d32" dark class="hoverable">
+                <v-img style="height:550px" :src="image"></v-img>
+                <v-card-text class="headline text-capitalize">
+                  titulo do card
+                </v-card-text>
+              </v-card>
+            </v-flex>
+            <v-flex d-flex xs6 md6>
+              <v-card color="#6a1b9a" dark class="hoverable">
+                <v-img style="height:550px" :src="image"></v-img>
+                <v-card-text class="headline text-capitalize">
+                  Titulo do card
+                </v-card-text>
               </v-card>
             </v-flex>
           </v-layout>
         </v-flex>
         <v-flex d-flex xs12 md4>
-          <latestnews :titles="titles" :images="blocourls"></latestnews>
+          latestnewsaqui
         </v-flex>
       </v-layout>
     </v-container>
@@ -71,7 +64,7 @@
     <!-- Segunda grid -->
     <v-container fluid grid-list-xl>
       <v-layout row wrap>
-        <v-flex d-flex xs1 md1 class="potato"
+        <v-flex d-flex xs1 md1 class="mybutton hoverable"
           ><div class="arrowleft bounceleft" @click="previousvideo"></div
         ></v-flex>
         <v-flex d-flex xs10 md10>
@@ -109,7 +102,7 @@
             </v-flex>
           </v-layout>
         </v-flex>
-        <v-flex d-flex xs1 md1 class="potato"
+        <v-flex d-flex xs1 md1 class="mybutton hoverable"
           ><div class="arrowright bounceright" @click="nextvideo"></div
         ></v-flex>
       </v-layout>
@@ -137,19 +130,12 @@
 </template>
 
 <script>
-import latestnews from '~/components/latestnews'
-import cardlandscape from '~/components/card-landscape'
-import cardlandscapeinv from '~/components/card-landscape-inverted'
-import carro from '~/components/carro'
 import axios from 'axios'
 export default {
-  components: {
-    latestnews,
-    cardlandscape,
-    cardlandscapeinv,
-    carro
-  },
+  components: {},
   data: () => ({
+    banners: [],
+    bannertitles: [],
     nvideo: 0,
     video: 'https://www.youtube.com/embed/R_uS0aT0bG8',
     videos: [
@@ -157,22 +143,8 @@ export default {
       'https://www.youtube.com/embed/bX3dwi_yuSA',
       'https://www.youtube.com/embed/FuP_hNi-UPY'
     ],
-    blocourls: [],
-    titles: [],
-    blocoids: [],
     array: [],
-    arraycarro1: {
-      images: [
-        'https://images.unsplash.com/photo-1553722686-e94d1b20e9e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-        'https://images.unsplash.com/photo-1553808744-634be53ea568?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80'
-      ],
-      texts: [
-        'Uma caixa de correio random no meio duma ponte',
-        'A filha da Maria comprou um chapéu novo'
-      ]
-    },
-    lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
-    one:
+    image:
       'https://images.unsplash.com/photo-1553643182-15d168e4d680?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
     identificador: ''
   }),
@@ -183,26 +155,11 @@ export default {
   methods: {
     pedido: function(categoria) {
       const self = this
-      self.blocourls = []
-      self.blocoids = []
-      self.titles = []
       axios
-        .get(
-          'https://api.unsplash.com/search/photos/?page=1;query=' +
-            categoria +
-            ';client_id=2ebf903d65d58846dba610108cbf428043756525989c37bfd1121174ff28a339'
-        )
+        .get('http://gateway.loba.pt:3001/rest/banners/pt/' + categoria)
         .then(function(response) {
-          self.array = []
-          self.array.push(response)
-          for (const index in self.array[0].data.results) {
-            self.blocourls.push(self.array[0].data.results[index].urls.regular)
-            self.blocoids.push(self.array[0].data.results[index].id)
-            self.titles.push(self.array[0].data.results[index].alt_description)
-          }
-        })
-        .catch(function(error) {
-          console.log(error)
+          self.array = response.data.banners
+          console.log(self.array)
         })
     },
     nextvideo: function() {
@@ -225,13 +182,13 @@ a {
   color: #d0d0d0;
   text-decoration: none; /* no underline */
 }
-.potato {
+.mybutton {
   margin-top: 20%;
   background-color: transparent;
   height: 100px;
   width: 10px;
 }
-.potato:hover {
+.mybutton:hover {
   border-style: solid;
   border-width: 1px;
   border-radius: 10px;
@@ -312,7 +269,8 @@ a {
   font-size: 40px;
 }
 .hoverable:hover {
-  transform: scale(1.02);
+  z-index: 2;
+  transform: scale(1.04);
   cursor: pointer;
 }
 </style>

@@ -14,6 +14,7 @@
           :to="item.to"
           router
           exact
+          @click="drawer = !drawer"
         >
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
@@ -26,9 +27,14 @@
     </v-navigation-drawer>
     <v-toolbar :clipped-left="clipped" fixed app color="white">
       <v-toolbar-side-icon @click="drawer = !drawer" />
-      <v-btn icon @click.stop="clipped = !clipped">
+      <!-- <v-btn icon @click.stop="clipped = !clipped">
         <v-icon>web</v-icon>
-      </v-btn>
+      </v-btn> -->
+      <nuxt-link to="/"
+        ><v-btn icon>
+          <v-icon>home</v-icon>
+        </v-btn></nuxt-link
+      >
       <v-toolbar-title>
         <div style="transform: scale(1.815);">
           <svg width="300" height="35">
@@ -87,32 +93,12 @@ export default {
         {
           icon: 'nature_people',
           title: 'Cultura',
-          to: '/categorias/culture'
+          to: '/categorias/cultura'
         },
         {
           icon: 'directions_run',
           title: 'Desporto',
-          to: '/categorias/sports'
-        },
-        {
-          icon: 'school',
-          title: 'Educação',
-          to: '/categorias/education'
-        },
-        {
-          icon: 'local_drink',
-          title: 'Ciência',
-          to: '/categorias/science'
-        },
-        {
-          icon: 'attach_money',
-          title: 'Negócios',
-          to: '/categorias/business'
-        },
-        {
-          icon: 'live_tv',
-          title: 'Entretenimento',
-          to: '/categorias/entertainment'
+          to: '/categorias/desporto'
         }
       ],
       miniVariant: false,

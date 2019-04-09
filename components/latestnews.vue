@@ -3,11 +3,7 @@
     <v-flex d-flex>
       <v-layout row wrap>
         <v-flex d-flex xs12>
-          <v-card
-            class="gradient"
-            dark
-            style="box-shadow: 2px 2px 8px 5px grey"
-          >
+          <v-card color="#0277bd" dark style="box-shadow: 1px 1px 2px 2px grey">
             <v-card color="white darken-3" dark>
               <v-card-text
                 class="black--text text--darken-1 text-xs-right customtitle"

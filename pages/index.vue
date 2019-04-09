@@ -1,10 +1,7 @@
 <template>
   <div>
     <br />
-    <p
-      class="font-weight-regular display-1 blue--text text--darken-2 text-xs-right"
-      style="padding-left:10px"
-    >
+    <p class="customtitle text-xs-center">
       Notícias Recentes
     </p>
     <br />
@@ -29,5 +26,9 @@ p {
 
 .cartao {
   padding-top: 30px;
+}
+.customtitle {
+  font-family: 'Teko', sans-serif;
+  font-size: 40px;
 }
 </style>
