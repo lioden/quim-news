@@ -11,7 +11,7 @@
           <v-layout row wrap>
             <v-flex d-flex xs12 md12>
               <v-card color="red darken-2" dark height="525px">
-                carro aqui
+                <carro :images="banners" :titles="bannertitles"></carro>
               </v-card>
             </v-flex>
             <v-flex d-flex xs12 md6>
@@ -131,8 +131,9 @@
 
 <script>
 import axios from 'axios'
+import carro from '~/components/carro'
 export default {
-  components: {},
+  components: { carro },
   data: () => ({
     banners: [],
     bannertitles: [],
@@ -155,11 +156,19 @@ export default {
   methods: {
     pedido: function(categoria) {
       const self = this
+      self.banners = []
+      self.bannertitles = []
+      self.array = []
       axios
         .get('http://gateway.loba.pt:3001/rest/banners/pt/' + categoria)
         .then(function(response) {
           self.array = response.data.banners
-          console.log(self.array)
+          for (const index in self.array) {
+            self.banners.push(self.array[index].image_desktop)
+            self.bannertitles.push(self.array[index].title)
+          }
+          console.log(self.banners)
+          console.log(self.bannertitles)
         })
     },
     nextvideo: function() {

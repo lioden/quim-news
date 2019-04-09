@@ -1,9 +1,9 @@
 <template>
   <v-carousel hide-delimiters>
-    <v-carousel-item v-for="(item, i) in fontes" :key="i" :src="item">
+    <v-carousel-item v-for="(item, i) in images" :key="i" :src="getImg(item)">
       <div class="overlay"></div>
       <div class="centrado headline">
-        <p>{{ titulos[i] }}</p>
+        <p>{{ titles[i] }}</p>
       </div>
     </v-carousel-item>
   </v-carousel>
@@ -12,8 +12,14 @@
 <script>
 export default {
   props: {
-    fontes: Array,
-    titulos: Array
+    images: Array,
+    titles: Array
+  },
+  methods: {
+    getImg: function(path) {
+      console.log('http://cms.loba.pt' + path)
+      return 'http://cms.loba.pt' + path
+    }
   }
 }
 </script>
@@ -39,7 +45,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.3); /* Black background with opacity */
+  background-color: rgba(0, 0, 0, 0.2); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
 }
 </style>
