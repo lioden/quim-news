@@ -1,6 +1,7 @@
 <template>
   <v-carousel hide-delimiters>
-    <v-carousel-item v-for="(item, i) in images" :key="i" :src="getImg(item)">
+    <v-carousel-item v-for="(item, i) in images" :key="i">
+      <img :src="getImg(item)" style="width:100%;height:100%;" />
       <div class="overlay"></div>
       <div class="centrado headline">
         <p>{{ titles[i] }}</p>

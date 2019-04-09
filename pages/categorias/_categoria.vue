@@ -10,9 +10,7 @@
         <v-flex d-flex xs12 md8>
           <v-layout row wrap>
             <v-flex d-flex xs12 md12>
-              <v-card color="red darken-2" dark height="525px">
-                <carro :images="banners" :titles="bannertitles"></carro>
-              </v-card>
+              <carro :images="banners" :titles="bannertitles"></carro>
             </v-flex>
             <v-flex d-flex xs12 md6>
               <v-layout row wrap>
