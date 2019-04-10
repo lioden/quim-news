@@ -13,7 +13,6 @@
           :key="i"
           :to="item.to"
           router
-          exact
           @click="drawer = !drawer"
         >
           <v-list-tile-action>
@@ -41,10 +40,14 @@
       <v-spacer />
       <v-toolbar-items class="padtop">
         <v-select
-          :items="languages"
-          label="Lang"
-          solo
+          v-model="lang"
           style="width:80px"
+          :items="languages"
+          label="lang"
+          single-line
+          return-object
+          solo
+          @input="changeLang(lang)"
         ></v-select>
       </v-toolbar-items>
     </v-toolbar>
@@ -76,26 +79,23 @@ export default {
   },
   data() {
     return {
-      languages: [],
+      languages: ['en', 'pt'],
+      categoria: ['cultura', 'desporto'],
+      lang: 'pt',
       dark: false,
       clipped: true,
       drawer: false,
       fixed: false,
       items: [
         {
-          icon: 'whatshot',
-          title: 'Recentes',
-          to: '/'
-        },
-        {
           icon: 'nature_people',
           title: 'Cultura',
-          to: '/categorias/cultura'
+          to: '/pt/categorias/cultura'
         },
         {
           icon: 'directions_run',
           title: 'Desporto',
-          to: '/categorias/desporto'
+          to: '/pt/categorias/desporto'
         }
       ],
       miniVariant: false,
@@ -110,11 +110,19 @@ export default {
     axios
       .get('http://gateway.loba.pt:3001/rest/languages')
       .then(function(response) {
-        console.log('LANGUAGES')
         for (const index in response.data.languages)
           self.languages.push(response.data.languages[index].shortname)
-        console.log(self.languages)
       })
+  },
+  methods: {
+    changeLang: function(potato) {
+      console.log('log before potato')
+      console.log(potato)
+      console.log('log after potato')
+      console.log(this.items[0].to)
+      this.items[0].to = '/' + potato + '/categorias/' + this.categoria[0]
+      console.log(this.items[0].to)
+    }
   }
 }
 </script>
