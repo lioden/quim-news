@@ -165,8 +165,6 @@ export default {
             self.banners.push(self.array[index].image_desktop)
             self.bannertitles.push(self.array[index].title)
           }
-          console.log(self.banners)
-          console.log(self.bannertitles)
         })
     },
     nextvideo: function() {

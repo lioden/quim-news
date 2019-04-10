@@ -35,10 +35,18 @@
           <v-icon>home</v-icon>
         </v-btn></nuxt-link
       >
-      <v-toolbar-title>
+      <v-toolbar-title class="padtop">
         <img src="https://www.loba.pt/images/loba.png" alt="LOBA" />
       </v-toolbar-title>
       <v-spacer />
+      <v-toolbar-items class="padtop">
+        <v-select
+          :items="languages"
+          label="Lang"
+          solo
+          style="width:80px"
+        ></v-select>
+      </v-toolbar-items>
     </v-toolbar>
     <div>
       <div class="margens">
@@ -60,6 +68,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import customfooter from '~/components/customfooter'
 export default {
   components: {
@@ -67,6 +76,7 @@ export default {
   },
   data() {
     return {
+      languages: [],
       dark: false,
       clipped: true,
       drawer: false,
@@ -93,6 +103,18 @@ export default {
       rightDrawer: false,
       logo: 'https://i.ibb.co/gj4bRKq/quimlogo.png'
     }
+  },
+  mounted: function() {
+    const self = this
+    self.languages = []
+    axios
+      .get('http://gateway.loba.pt:3001/rest/languages')
+      .then(function(response) {
+        console.log('LANGUAGES')
+        for (const index in response.data.languages)
+          self.languages.push(response.data.languages[index].shortname)
+        console.log(self.languages)
+      })
   }
 }
 </script>
@@ -101,5 +123,8 @@ export default {
 .margens {
   padding-top: 80px;
   margin: 30px 30px;
+}
+.padtop {
+  padding-top: 8px;
 }
 </style>
