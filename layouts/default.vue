@@ -90,34 +90,32 @@ export default {
   mounted: function() {
     const self = this
     self.languages = []
-    self.items = []
     axios
       .get('http://gateway.loba.pt:3001/rest/languages')
       .then(function(response) {
         for (const index in response.data.languages)
           self.languages.push(response.data.languages[index].shortname)
       })
-    axios
-      .get('http://gateway.loba.pt:3001/rest/menutree/pt/menu_principal')
-      .then(function(response) {
-        console.log('--------------------lang----------------')
-        console.log(response.data.menutree[0].title_langs[self.lang])
-        for (const i in response.data.menutree)
-          self.items.push({
-            title: response.data.menutree[i].title_langs[self.lang],
-            to: response.data.menutree[i].link_langs[self.lang]
-          })
-      })
-    this.changeLang('pt')
+    this.getSidemenu('en')
   },
   methods: {
-    handler: function(idioma) {
-      this.changeLang(idioma)
+    getSidemenu: function(idioma) {
+      self = this
+      self.items = []
+      axios
+        .get('http://gateway.loba.pt:3001/rest/menutree/pt/menu_principal')
+        .then(function(response) {
+          console.log('--------------------lang----------------')
+          console.log(response.data.menutree[0].title_langs[idioma])
+          for (const i in response.data.menutree)
+            self.items.push({
+              title: response.data.menutree[i].title_langs[idioma],
+              to: response.data.menutree[i].link_langs[idioma]
+            })
+        })
     },
-    changeLang: function(idioma) {
-      for (const a in this.items) {
-        this.items[a].to = '/' + idioma + '/categorias/' + this.categoria[a]
-      }
+    handler: function(idioma) {
+      this.getSidemenu(idioma)
     },
   }
 }
