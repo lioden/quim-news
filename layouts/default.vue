@@ -100,10 +100,12 @@ export default {
     axios
       .get('http://gateway.loba.pt:3001/rest/menutree/pt/menu_principal')
       .then(function(response) {
+        console.log('--------------------lang----------------')
+        console.log(response.data.menutree[0].title_langs[self.lang])
         for (const i in response.data.menutree)
           self.items.push({
-            title: response.data.menutree[i].title_langs.pt,
-            to: '/pt/categorias' + response.data.menutree[i].link_langs.pt
+            title: response.data.menutree[i].title_langs[self.lang],
+            to: response.data.menutree[i].link_langs[self.lang]
           })
       })
     this.changeLang('pt')
@@ -111,20 +113,12 @@ export default {
   methods: {
     handler: function(idioma) {
       this.changeLang(idioma)
-      this.reloadPage(idioma)
     },
     changeLang: function(idioma) {
       for (const a in this.items) {
         this.items[a].to = '/' + idioma + '/categorias/' + this.categoria[a]
       }
     },
-    reloadPage: function(idioma) {
-      console.log('-------------reloadPage triggered----------')
-      console.log(idioma)
-      console.log('/' + idioma + this.$route.path.slice(3))
-      const potato = this.$route.path.slice(3)
-      this.$router.push('/' + idioma + potato)
-    }
   }
 }
 </script>
