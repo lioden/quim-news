@@ -18,7 +18,6 @@ export default {
   },
   methods: {
     getImg: function(path) {
-      console.log('http://cms.loba.pt' + path)
       return 'http://cms.loba.pt' + path
     }
   }

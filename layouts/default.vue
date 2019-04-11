@@ -15,9 +15,6 @@
           router
           @click="drawer = !drawer"
         >
-          <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title v-text="item.title" />
           </v-list-tile-content>
@@ -29,14 +26,11 @@
       <!-- <v-btn icon @click.stop="clipped = !clipped">
         <v-icon>web</v-icon>
       </v-btn> -->
-      <nuxt-link to="/"
-        ><v-btn icon>
-          <v-icon>home</v-icon>
-        </v-btn></nuxt-link
-      >
-      <v-toolbar-title class="padtop">
-        <img src="https://www.loba.pt/images/loba.png" alt="LOBA" />
-      </v-toolbar-title>
+      <nuxt-link to="/">
+        <v-toolbar-title class="padtop padleft">
+          <img src="https://www.loba.pt/images/loba.png" alt="LOBA" />
+        </v-toolbar-title>
+      </nuxt-link>
       <v-spacer />
       <v-toolbar-items class="padtop">
         <v-select
@@ -47,7 +41,7 @@
           single-line
           return-object
           solo
-          @input="changeLang(lang)"
+          @input="handler(lang)"
         ></v-select>
       </v-toolbar-items>
     </v-toolbar>
@@ -86,18 +80,7 @@ export default {
       clipped: true,
       drawer: false,
       fixed: false,
-      items: [
-        {
-          icon: 'nature_people',
-          title: 'Cultura',
-          to: '/pt/categorias/cultura'
-        },
-        {
-          icon: 'directions_run',
-          title: 'Desporto',
-          to: '/pt/categorias/desporto'
-        }
-      ],
+      items: [],
       miniVariant: false,
       right: true,
       rightDrawer: false,
@@ -107,21 +90,40 @@ export default {
   mounted: function() {
     const self = this
     self.languages = []
+    self.items = []
     axios
       .get('http://gateway.loba.pt:3001/rest/languages')
       .then(function(response) {
         for (const index in response.data.languages)
           self.languages.push(response.data.languages[index].shortname)
       })
+    axios
+      .get('http://gateway.loba.pt:3001/rest/menutree/pt/menu_principal')
+      .then(function(response) {
+        for (const i in response.data.menutree)
+          self.items.push({
+            title: response.data.menutree[i].title_langs.pt,
+            to: '/pt/categorias' + response.data.menutree[i].link_langs.pt
+          })
+      })
+    this.changeLang('pt')
   },
   methods: {
-    changeLang: function(potato) {
-      console.log('log before potato')
-      console.log(potato)
-      console.log('log after potato')
-      console.log(this.items[0].to)
-      this.items[0].to = '/' + potato + '/categorias/' + this.categoria[0]
-      console.log(this.items[0].to)
+    handler: function(idioma) {
+      this.changeLang(idioma)
+      this.reloadPage(idioma)
+    },
+    changeLang: function(idioma) {
+      for (const a in this.items) {
+        this.items[a].to = '/' + idioma + '/categorias/' + this.categoria[a]
+      }
+    },
+    reloadPage: function(idioma) {
+      console.log('-------------reloadPage triggered----------')
+      console.log(idioma)
+      console.log('/' + idioma + this.$route.path.slice(3))
+      const potato = this.$route.path.slice(3)
+      this.$router.push('/' + idioma + potato)
     }
   }
 }
@@ -134,5 +136,8 @@ export default {
 }
 .padtop {
   padding-top: 8px;
+}
+.padleft {
+  padding-left: 10px;
 }
 </style>
