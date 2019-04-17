@@ -2,8 +2,9 @@
   <div>
     <!-- Primeira Grid -->
     <v-container fluid grid-list-xl class="pa-0">
-      <div class="customtitle text-xs-center text-capitalize">
-        {{ identificador }}
+      <div class="customtitle text-xs-center ">
+        Pedido á API: /banners/pt/principais
+        {{ lang }}
       </div>
       <br />
       <v-layout row wrap>
@@ -158,7 +159,7 @@ export default {
       self.bannertitles = []
       self.array = []
       axios
-        .get('http://gateway.loba.pt:3001/rest/banners/pt/' + categoria)
+        .get('http://gateway.loba.pt:3001/rest/banners/pt/principais')
         .then(function(response) {
           self.array = response.data.banners
           for (const index in self.array) {

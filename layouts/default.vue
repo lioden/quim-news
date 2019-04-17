@@ -21,11 +21,19 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar :clipped-left="clipped" fixed app color="white">
-      <v-toolbar-side-icon @click="drawer = !drawer" />
-      <!-- <v-btn icon @click.stop="clipped = !clipped">
-        <v-icon>web</v-icon>
-      </v-btn> -->
+    <v-toolbar
+      style="background-color:white"
+      :clipped-left="clipped"
+      fixed
+      app
+      height="80"
+      :extension-height="extensionheight"
+    >
+      <div class="burguer">
+        <v-btn icon @click.stop="drawer = !drawer">
+          <v-icon class="burguericon">view_headline</v-icon>
+        </v-btn>
+      </div>
       <nuxt-link to="/">
         <v-toolbar-title class="padtop padleft">
           <img src="https://www.loba.pt/images/loba.png" alt="LOBA" />
@@ -44,6 +52,19 @@
           @input="handler(lang)"
         ></v-select>
       </v-toolbar-items>
+      <template v-slot:extension style="align-items: center">
+        <v-layout row wrap>
+          <v-flex v-for="i in items" :key="i">
+            <div class="outerbutton">
+              <div class="button">
+                <nuxt-link :to="i.to">
+                  <div class="buttontext">{{ i.title }}</div>
+                </nuxt-link>
+              </div>
+            </div>
+          </v-flex>
+        </v-layout>
+      </template>
     </v-toolbar>
     <div>
       <div class="margens">
@@ -73,6 +94,7 @@ export default {
   },
   data() {
     return {
+      extensionheight: '50',
       languages: ['en', 'pt'],
       categoria: ['cultura', 'desporto'],
       lang: 'pt',
@@ -96,40 +118,76 @@ export default {
         for (const index in response.data.languages)
           self.languages.push(response.data.languages[index].shortname)
       })
-    this.getSidemenu('en')
+    this.getSidemenu('pt')
   },
   methods: {
     getSidemenu: function(idioma) {
-      self = this
+      const self = this
       self.items = []
       axios
         .get('http://gateway.loba.pt:3001/rest/menutree/pt/menu_principal')
         .then(function(response) {
           console.log('--------------------lang----------------')
           console.log(response.data.menutree[0].title_langs[idioma])
-          for (const i in response.data.menutree)
-            self.items.push({
-              title: response.data.menutree[i].title_langs[idioma],
-              to: response.data.menutree[i].link_langs[idioma]
-            })
+          for (const i in response.data.menutree) {
+            if (response.data.menutree[i].title_langs[idioma] != null) {
+              self.items.push({
+                title: response.data.menutree[i].title_langs[idioma],
+                to: response.data.menutree[i].link_langs[idioma]
+              })
+            } else {
+              console.log('menu item pusher partiu')
+            }
+          }
         })
     },
     handler: function(idioma) {
       this.getSidemenu(idioma)
-    },
+    }
   }
 }
 </script>
 
 <style media="screen">
+a {
+  text-decoration: none;
+}
 .margens {
-  padding-top: 80px;
+  padding-top: 150px;
   margin: 30px 30px;
 }
+.burguer {
+  padding-top: 12px;
+}
+.burguericon {
+  padding-left: 1px;
+}
 .padtop {
-  padding-top: 8px;
+  padding-top: 20px;
 }
 .padleft {
   padding-left: 10px;
+}
+.button:hover {
+  background-position: left bottom;
+}
+
+.buttontext {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #c0c0c0;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 15px;
+  line-height: 50px;
+  color: black;
+  transition: all 0.6s ease-out;
+  display: block;
+}
+
+.buttontext:hover {
+  color: white;
+  text-shadow: 0px 1px 2px grey;
 }
 </style>

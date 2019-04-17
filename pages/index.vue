@@ -4,8 +4,6 @@
     <p class="customtitle text-xs-center">
       Notícias Recentes
     </p>
-    <br />
-    <hr color="grey" />
     <gridrecentes></gridrecentes>
   </div>
 </template>

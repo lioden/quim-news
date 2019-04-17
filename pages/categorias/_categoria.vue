@@ -158,7 +158,7 @@ export default {
       self.bannertitles = []
       self.array = []
       axios
-        .get('http://gateway.loba.pt:3001/rest/banners/pt/' + categoria)
+        .get('http://gateway.loba.pt:3001/rest/banners/pt/principais')
         .then(function(response) {
           self.array = response.data.banners
           for (const index in self.array) {
