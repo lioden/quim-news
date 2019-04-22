@@ -9,11 +9,10 @@
     >
       <v-list>
         <v-list-tile
-          v-for="(item, i) in items"
+          v-for="(item, i) in sidemenu"
           :key="i"
-          :to="item.to"
           router
-          @click="drawer = !drawer"
+          @click="sideHandler(item.to)"
         >
           <v-list-tile-content>
             <v-list-tile-title v-text="item.title" />
@@ -54,11 +53,11 @@
       </v-toolbar-items>
       <template v-slot:extension style="align-items: center">
         <v-layout row wrap>
-          <v-flex v-for="i in items" :key="i">
+          <v-flex v-for="(item, i) in items" :key="i">
             <div class="outerbutton">
               <div class="button">
-                <nuxt-link :to="i.to">
-                  <div class="buttontext">{{ i.title }}</div>
+                <nuxt-link :to="item.to">
+                  <div class="buttontext">{{ item.title }}</div>
                 </nuxt-link>
               </div>
             </div>
@@ -103,6 +102,7 @@ export default {
       drawer: false,
       fixed: false,
       items: [],
+      sidemenu: [],
       miniVariant: false,
       right: true,
       rightDrawer: false,
@@ -118,31 +118,56 @@ export default {
         for (const index in response.data.languages)
           self.languages.push(response.data.languages[index].shortname)
       })
-    this.getSidemenu('pt')
+    this.handler('pt')
   },
   methods: {
-    getSidemenu: function(idioma) {
+    getTopmenu: function(idioma) {
       const self = this
       self.items = []
       axios
         .get('http://gateway.loba.pt:3001/rest/menutree/pt/menu_principal')
         .then(function(response) {
-          console.log('--------------------lang----------------')
-          console.log(response.data.menutree[0].title_langs[idioma])
           for (const i in response.data.menutree) {
             if (response.data.menutree[i].title_langs[idioma] != null) {
               self.items.push({
                 title: response.data.menutree[i].title_langs[idioma],
                 to: response.data.menutree[i].link_langs[idioma]
               })
-            } else {
-              console.log('menu item pusher partiu')
+            }
+          }
+        })
+    },
+    buildRoute: function(route) {
+      return this.lang + '/' + route
+    },
+    getSideMenu: function(lang) {
+      const self = this
+      self.sidemenu = []
+      axios
+        .get('http://gateway.loba.pt:3001/rest/menutree/pt/lateral')
+        .then(function(response) {
+          for (const i in response.data.menutree) {
+            if (response.data.menutree[i].title_langs[lang] != null) {
+              self.sidemenu.push({
+                title: response.data.menutree[0].title_langs[lang],
+                to: response.data.menutree[0].slug_langs[lang]
+              })
             }
           }
         })
     },
     handler: function(idioma) {
-      this.getSidemenu(idioma)
+      this.getTopmenu(idioma)
+      this.getSideMenu(idioma)
+    },
+    sideHandler: function(route) {
+      console.log(this.lang + '/' + route)
+      this.$router.replace('/')
+      this.$router.replace('pt/categoria')
+      console.log(this.$router.app._route)
+      let drawer = this.drawer
+      drawer = !drawer
+      this.drawer = drawer
     }
   }
 }
