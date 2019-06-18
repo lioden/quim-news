@@ -2,8 +2,7 @@
 
 # Jornal do Senhor Joaquim
 
-> A mockup project of a news platform
-Built using Nuxt/VueJS + Vuetify + Axios and Unsplash API.
+> A mockup project of a news platform using Nuxt/VueJS + Vuetify + Axios and Unsplash API.
 
 ## Build Setup
 Open cmd or git bash, and navigate to the downloaded project folder.
