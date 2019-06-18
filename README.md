@@ -2,7 +2,8 @@
 
 # Jornal do Senhor Joaquim
 
-> O orgulho de Madaíl
+> A mockup project of a news platform
+Built using Nuxt/VueJS + Vuetify + Axios and Unsplash API.
 
 ## Build Setup
 Open cmd or git bash, and navigate to the downloaded project folder.
